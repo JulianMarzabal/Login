@@ -63,6 +63,7 @@ class HomeViewController: UIViewController {
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         return button
     }()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,15 +73,15 @@ class HomeViewController: UIViewController {
     }
     
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationItem.setHidesBackButton(true, animated: true)
-        
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        self.navigationItem.setHidesBackButton(true, animated: true)
+//    }
     
     private func setupView(){
-       
-        title = "login"
+        navigationItem.largeTitleDisplayMode = .always
+    
+        title = "Login"
         view.backgroundColor = .systemBackground
         view.addSubview(emailTextField)
         view.addSubview(passwordTextField)
@@ -106,20 +107,27 @@ class HomeViewController: UIViewController {
     }
     
     @objc private  func buttonTapped() {
+       
+        validateFormat()
+        
+    }
+    
+    private func validateFormat() {
         guard let email = emailTextField.text,let password = passwordTextField.text else {return}
+        
         if viewmodel.validateEmail(email: email) && viewmodel.validatePassword(password: password) {
-            
-            // Show other view
-            print("es true")
+             viewmodel.validateUser(email: email, password: password) 
+                //viewmodel.delegate?.toFirstView()
+                print("es true")
         }
         else if !viewmodel.validateEmail(email: email) {
-            print("email no valido")
+            
+            viewmodel.delegate?.showPromptView()
         } else if !viewmodel.validatePassword(password: password){
             
             print("password no valida")
             
         }
-        
         
     }
     
