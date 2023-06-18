@@ -7,14 +7,10 @@
 
 import Foundation
 import FirebaseAuth
+import FirebaseFirestore
 protocol RegisterViewDelegate:AnyObject {
-    
     func  toLoginView()
     func toHomeView()
-    
-    
-    
-    
 }
 
 
@@ -27,7 +23,7 @@ class RegisterViewModel {
     private var password: String = ""
     private var passwordConfirm: String = ""
     private var name: String = ""
-    private var lastname: String = ""
+    private var surname: String = ""
     
     
     
@@ -50,7 +46,7 @@ class RegisterViewModel {
 //
 //    }
     
-    func registerUser(completion: @escaping (Result<User,Error>) ->Void) {
+    private func registerUser(completion: @escaping (Result<User,Error>) ->Void) {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             if let error = error {
                 print("Cannot create user")
@@ -66,44 +62,75 @@ class RegisterViewModel {
     }
     
     func registerButtonTapped() {
-        // validar los campos
         
-        registerUser { [weak self] result in
-            switch result {
-            case .success(let user):
-                print("usuario creado con exito \(user)")
-                self?.delegate?.toHomeView()
+        if !email.isEmpty && !password.isEmpty && !passwordConfirm.isEmpty {
+            if password == passwordConfirm {
+                registerUser { [weak self] result in
+                    switch result {
+                    case .success(let user):
+                        print("Usuario creado con éxito: \(user)")
+                        self?.delegate?.toHomeView()
+                    case .failure(let error):
+                        print("Error: \(error.localizedDescription)")
+                    }
+                }
                 
-            case .failure(let error):
-                print("error \(error.localizedDescription)")
+                
+            } else {
+                print("Password no concuerdan")
             }
-        
             
             
+        } else {
+            print("todo mlaaa")
         }
+        
     }
+    
+    
+//
+//
+//        // validar los campos
+//        if ValidateEmail().validateEmail(email: email) && ValidatePassword().validatePassword(password: password) {
+//            registerUser { [weak self] result in
+//                switch result {
+//                case .success(let user):
+//                    print("Usuario creado con éxito: \(user)")
+//                    self?.delegate?.toHomeView()
+//                case .failure(let error):
+//                    print("Error: \(error.localizedDescription)")
+//                }
+//            }
+//        } else {
+//            print("Al menos uno de los campos no es válido")
+//        }
+//
+//
+//    }
+    
+    
     
     func onViewDidLoad(){
         items = []
         items.append(.label(text: "Name"))
-        items.append(.input(text: "Introduce Your Name", handler: {[weak self] text in
+        items.append(.input(text: "Introduce Your Name", inputType: .name, handler: {[weak self] text in
             self?.name = text
         }))
-        items.append(.label(text: "Lastname"))
-        items.append(.input(text: "Introduce Your Lastname", handler: {[weak self] text in
-            self?.lastname = text
+        items.append(.label(text: "Surname"))
+        items.append(.input(text: "Introduce Your Surname", inputType: .surname, handler: {[weak self] text in
+            self?.surname = text
         }))
         items.append(.label(text: "Email"))
 
-        items.append(.input(text: "Introduce Email", handler: {[weak self] text in
+        items.append(.input(text: "Introduce Email", inputType: .email, handler: {[weak self] text in
             self?.email = text
         }))
         items.append(.label(text: "Password"))
-        items.append(.input(text: "Create a  Password", handler: {[weak self] password in
+        items.append(.input(text: "Create a  Password", inputType: .password, handler: {[weak self] password in
             self?.password = password
         }))
         items.append(.label(text: "Confirm Password"))
-        items.append(.input(text: "Confirm your password", handler: {[weak self] text in
+        items.append(.input(text: "Confirm your password", inputType: .password, handler: {[weak self] text in
             self?.passwordConfirm = text
         }))
         
@@ -123,7 +150,7 @@ class RegisterViewModel {
     enum Item{
         case label(text:String)
         case button(text:String,handler: ButtonHandler?)
-        case input(text:String,handler: TextHandler?)
+        case input(text:String,inputType: InputType,handler: TextHandler?)
         var identifier: String {
             switch self {
             case .button:

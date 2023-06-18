@@ -42,11 +42,11 @@ extension UIImage {
         
         return target
     }
-    func resizeImage(_ image: UIImage, to size: CGSize) -> UIImage? {
-        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
-        image.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
-        let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return resizedImage
-    }
+    func resize(to size: CGSize) -> UIImage? {
+           UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
+           self.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+           let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
+           UIGraphicsEndImageContext()
+           return resizedImage
+       }
 }

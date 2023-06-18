@@ -18,8 +18,9 @@ class MainCoordinator {
     func start() {
         let vm = RegisterViewModel()
         vm.delegate = self
-        
+
         let vc = RegisterViewController(viewmodel: vm)
+        
         
         navigationController.pushViewController(vc, animated: true)
     }
@@ -31,7 +32,8 @@ class MainCoordinator {
     }
     
     func onFirstView() {
-        let vc = FirstViewController()
+        let vm = FirstViewViewModel()
+        let vc = FirstViewController(viewmodel: vm)
         navigationController.pushViewController(vc, animated: true)
     }
     func onPromptView() {

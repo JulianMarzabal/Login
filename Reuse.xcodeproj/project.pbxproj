@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E14A53D2A35EC0700FA5B72 /* ValidateFormStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E14A53C2A35EC0700FA5B72 /* ValidateFormStrategy.swift */; };
+		1E14A53F2A364F3800FA5B72 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E14A53E2A364F3800FA5B72 /* UIColor+Extensions.swift */; };
 		1E3C50C12A29345F00F7859B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3C50C02A29345F00F7859B /* AppDelegate.swift */; };
 		1E3C50C32A29345F00F7859B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3C50C22A29345F00F7859B /* SceneDelegate.swift */; };
 		1E3C50C52A29345F00F7859B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3C50C42A29345F00F7859B /* HomeViewController.swift */; };
@@ -37,13 +39,18 @@
 		1E754BB92A32815A00BF2F0C /* TableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E754BB82A32815A00BF2F0C /* TableView+Extensions.swift */; };
 		1E754BBB2A329AB500BF2F0C /* LabelWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E754BBA2A329AB500BF2F0C /* LabelWrapper.swift */; };
 		1E754BBD2A32A23D00BF2F0C /* ButtonWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E754BBC2A32A23D00BF2F0C /* ButtonWrapper.swift */; };
+		1E892A862A3F533C002B11AB /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 1E892A852A3F533C002B11AB /* FacebookCore */; };
+		1E892A882A3F533C002B11AB /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 1E892A872A3F533C002B11AB /* FacebookLogin */; };
 		1EC093E02A2FDFCC0006F636 /* YOLOv3Tiny.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1EC093DF2A2FDFCC0006F636 /* YOLOv3Tiny.mlmodel */; };
 		1EC093E22A2FE1B60006F636 /* FirstViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC093E12A2FE1B60006F636 /* FirstViewViewModel.swift */; };
-		1EC093E42A2FE29B0006F636 /* firstInput.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 1EC093E32A2FE29B0006F636 /* firstInput.jpeg */; };
 		1EC093E72A2FE61C0006F636 /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC093E62A2FE61C0006F636 /* ImageExtension.swift */; };
+		71D4147F6B5CD3F910F325D6 /* Pods_Reuse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D908AD2FC1D16F4AF9BB2E6 /* Pods_Reuse.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D908AD2FC1D16F4AF9BB2E6 /* Pods_Reuse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Reuse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E14A53C2A35EC0700FA5B72 /* ValidateFormStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateFormStrategy.swift; sourceTree = "<group>"; };
+		1E14A53E2A364F3800FA5B72 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		1E3C50BD2A29345F00F7859B /* Reuse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reuse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E3C50C02A29345F00F7859B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1E3C50C22A29345F00F7859B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,8 +72,9 @@
 		1E754BBC2A32A23D00BF2F0C /* ButtonWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWrapper.swift; sourceTree = "<group>"; };
 		1EC093DF2A2FDFCC0006F636 /* YOLOv3Tiny.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = YOLOv3Tiny.mlmodel; sourceTree = "<group>"; };
 		1EC093E12A2FE1B60006F636 /* FirstViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewViewModel.swift; sourceTree = "<group>"; };
-		1EC093E32A2FE29B0006F636 /* firstInput.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = firstInput.jpeg; sourceTree = "<group>"; };
 		1EC093E62A2FE61C0006F636 /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
+		8516A340E9B514E7095BF681 /* Pods-Reuse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reuse.release.xcconfig"; path = "Target Support Files/Pods-Reuse/Pods-Reuse.release.xcconfig"; sourceTree = "<group>"; };
+		8F30CD536043A22BEDF95BB3 /* Pods-Reuse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reuse.debug.xcconfig"; path = "Target Support Files/Pods-Reuse/Pods-Reuse.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +82,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E892A882A3F533C002B11AB /* FacebookLogin in Frameworks */,
 				1E6FDE3B2A2D34F300D5B160 /* FirebaseRemoteConfig in Frameworks */,
+				1E892A862A3F533C002B11AB /* FacebookCore in Frameworks */,
 				1E6FDE332A2D34F300D5B160 /* FirebaseDatabaseSwift in Frameworks */,
 				1E6FDE312A2D34F300D5B160 /* FirebaseDatabase in Frameworks */,
 				1E6FDE292A2D34F300D5B160 /* FirebaseAppCheck in Frameworks */,
@@ -87,6 +97,7 @@
 				1E6FDE3D2A2D34F300D5B160 /* FirebaseRemoteConfigSwift in Frameworks */,
 				1E6FDE2F2A2D34F300D5B160 /* FirebaseAuthCombine-Community in Frameworks */,
 				1E6FDE392A2D34F300D5B160 /* FirebaseInstallations in Frameworks */,
+				71D4147F6B5CD3F910F325D6 /* Pods_Reuse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +109,8 @@
 			children = (
 				1E3C50BF2A29345F00F7859B /* Reuse */,
 				1E3C50BE2A29345F00F7859B /* Products */,
+				D3A6EC6F84E41D963A4777A5 /* Pods */,
+				F2B634D323D7B17AE274DC27 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -149,7 +162,6 @@
 			isa = PBXGroup;
 			children = (
 				1E6FDE212A2CF3CA00D5B160 /* FirstViewController.swift */,
-				1EC093E32A2FE29B0006F636 /* firstInput.jpeg */,
 				1EC093DF2A2FDFCC0006F636 /* YOLOv3Tiny.mlmodel */,
 				1EC093E12A2FE1B60006F636 /* FirstViewViewModel.swift */,
 			);
@@ -164,6 +176,7 @@
 				1E754BB62A327C6A00BF2F0C /* TextFieldWrapper.swift */,
 				1E754BBA2A329AB500BF2F0C /* LabelWrapper.swift */,
 				1E754BBC2A32A23D00BF2F0C /* ButtonWrapper.swift */,
+				1E14A53C2A35EC0700FA5B72 /* ValidateFormStrategy.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -190,8 +203,26 @@
 			children = (
 				1EC093E62A2FE61C0006F636 /* ImageExtension.swift */,
 				1E754BB82A32815A00BF2F0C /* TableView+Extensions.swift */,
+				1E14A53E2A364F3800FA5B72 /* UIColor+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D3A6EC6F84E41D963A4777A5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8F30CD536043A22BEDF95BB3 /* Pods-Reuse.debug.xcconfig */,
+				8516A340E9B514E7095BF681 /* Pods-Reuse.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F2B634D323D7B17AE274DC27 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0D908AD2FC1D16F4AF9BB2E6 /* Pods_Reuse.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,9 +232,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1E3C50D12A29346100F7859B /* Build configuration list for PBXNativeTarget "Reuse" */;
 			buildPhases = (
+				F9CBB2CA51B923647072D2C4 /* [CP] Check Pods Manifest.lock */,
 				1E3C50B92A29345F00F7859B /* Sources */,
 				1E3C50BA2A29345F00F7859B /* Frameworks */,
 				1E3C50BB2A29345F00F7859B /* Resources */,
+				C02A4EFD80C4EF7D9FA4E9FB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -224,6 +257,8 @@
 				1E6FDE3A2A2D34F300D5B160 /* FirebaseRemoteConfig */,
 				1E6FDE3C2A2D34F300D5B160 /* FirebaseRemoteConfigSwift */,
 				1E6FDE3E2A2D34F300D5B160 /* FirebaseStorage */,
+				1E892A852A3F533C002B11AB /* FacebookCore */,
+				1E892A872A3F533C002B11AB /* FacebookLogin */,
 			);
 			productName = Reuse;
 			productReference = 1E3C50BD2A29345F00F7859B /* Reuse.app */;
@@ -255,6 +290,7 @@
 			mainGroup = 1E3C50B42A29345F00F7859B;
 			packageReferences = (
 				1E6FDE252A2D34F300D5B160 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				1E892A842A3F533C002B11AB /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
 			);
 			productRefGroup = 1E3C50BE2A29345F00F7859B /* Products */;
 			projectDirPath = "";
@@ -273,11 +309,52 @@
 				1E3C50CD2A29346100F7859B /* LaunchScreen.storyboard in Resources */,
 				1E6FDE242A2D348200D5B160 /* GoogleService-Info.plist in Resources */,
 				1E3C50CA2A29346100F7859B /* Assets.xcassets in Resources */,
-				1EC093E42A2FE29B0006F636 /* firstInput.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C02A4EFD80C4EF7D9FA4E9FB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Reuse/Pods-Reuse-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Reuse/Pods-Reuse-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Reuse/Pods-Reuse-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F9CBB2CA51B923647072D2C4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Reuse-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1E3C50B92A29345F00F7859B /* Sources */ = {
@@ -288,11 +365,13 @@
 				1EC093E02A2FDFCC0006F636 /* YOLOv3Tiny.mlmodel in Sources */,
 				1EC093E72A2FE61C0006F636 /* ImageExtension.swift in Sources */,
 				1EC093E22A2FE1B60006F636 /* FirstViewViewModel.swift in Sources */,
+				1E14A53D2A35EC0700FA5B72 /* ValidateFormStrategy.swift in Sources */,
 				1E3C50D52A29359400F7859B /* MainCoordinator.swift in Sources */,
 				1E754BBD2A32A23D00BF2F0C /* ButtonWrapper.swift in Sources */,
 				1E754BB72A327C6A00BF2F0C /* TextFieldWrapper.swift in Sources */,
 				1E6FDE422A2D41B800D5B160 /* RegisterViewController.swift in Sources */,
 				1E754BB92A32815A00BF2F0C /* TableView+Extensions.swift in Sources */,
+				1E14A53F2A364F3800FA5B72 /* UIColor+Extensions.swift in Sources */,
 				1E6FDE442A2D50A100D5B160 /* RegisterViewModel.swift in Sources */,
 				1E3C50C12A29345F00F7859B /* AppDelegate.swift in Sources */,
 				1E6FDE4A2A2D569400D5B160 /* PopUpViewController.swift in Sources */,
@@ -434,6 +513,7 @@
 		};
 		1E3C50D22A29346100F7859B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F30CD536043A22BEDF95BB3 /* Pods-Reuse.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -461,6 +541,7 @@
 		};
 		1E3C50D32A29346100F7859B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8516A340E9B514E7095BF681 /* Pods-Reuse.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -516,6 +597,14 @@
 			requirement = {
 				branch = master;
 				kind = branch;
+			};
+		};
+		1E892A842A3F533C002B11AB /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -585,6 +674,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1E6FDE252A2D34F300D5B160 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		1E892A852A3F533C002B11AB /* FacebookCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1E892A842A3F533C002B11AB /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookCore;
+		};
+		1E892A872A3F533C002B11AB /* FacebookLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1E892A842A3F533C002B11AB /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookLogin;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

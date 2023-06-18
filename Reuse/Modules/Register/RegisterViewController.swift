@@ -24,10 +24,10 @@ class RegisterViewController: UIViewController {
     }
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Register"
+        label.text = "Create Account"
         label.translatesAutoresizingMaskIntoConstraints = false
         
-        label.font = .systemFont(ofSize: 32)
+        label.font = .systemFont(ofSize: 30)
         
         
         
@@ -98,11 +98,14 @@ extension RegisterViewController: UITableViewDataSource , UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = viewmodel.items[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: item.identifier, for: indexPath) 
+        let cell = tableView.dequeueReusableCell(withIdentifier: item.identifier, for: indexPath)
+        cell.separatorInset = UIEdgeInsets(top: 0, left: cell.bounds.size.width, bottom: 0, right: 0)
+        cell.selectionStyle = .none
+    
         switch item {
-        case let .input(text, handler):
+        case let .input(text,inputType, handler):
             guard let inputCell = cell as? TextFieldWrapper else {return UITableViewCell()}
-            inputCell.configure(model: .init(placeholderText: text, handler: handler))
+            inputCell.configure(model: .init(placeholderText: text, handler: handler, inputType:inputType ))
             return inputCell
             
         case let .button(text, handler):
@@ -123,21 +126,21 @@ extension RegisterViewController: UITableViewDataSource , UITableViewDelegate{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 30
     }
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let startIndex = 0
-          let endIndex = 12
-          let interval = 2
-        cell.selectionStyle = .none
-        
-          
-          if indexPath.row >= startIndex && indexPath.row <= endIndex && (indexPath.row - startIndex) % interval == 0 {
-              // Ocultar el separador de la celda
-              cell.separatorInset = UIEdgeInsets(top: 0, left: cell.bounds.size.width, bottom: 0, right: 0)
-          } else {
-              // Mostrar el separador de la celda
-              cell.separatorInset = UIEdgeInsets.zero
-          }
-    }
+//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        let startIndex = 0
+//          let endIndex = 12
+//          let interval = 2
+//        cell.selectionStyle = .none
+//
+//
+//          if indexPath.row >= startIndex && indexPath.row <= endIndex && (indexPath.row - startIndex) % interval == 0 {
+//              // Ocultar el separador de la celda
+//              cell.separatorInset = UIEdgeInsets(top: 0, left: cell.bounds.size.width, bottom: 0, right: 0)
+//          } else {
+//              // Mostrar el separador de la celda
+//              cell.separatorInset = UIEdgeInsets.zero
+//          }
+//    }
     
     
 }

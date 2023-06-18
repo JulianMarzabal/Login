@@ -12,6 +12,8 @@ extension UITableView {
     func registerCells() {
         
         self.register(TextFieldWrapper.self, forCellReuseIdentifier: TextFieldWrapper.identifier)
+        self.register(LabelWrapper.self, forCellReuseIdentifier: LabelWrapper.identifier)
+        self.register(ButtonWrapper.self, forCellReuseIdentifier: ButtonWrapper.identifier)
        
     }
     

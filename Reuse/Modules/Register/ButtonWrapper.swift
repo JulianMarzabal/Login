@@ -29,6 +29,7 @@ class ButtonWrapper: UITableViewCell {
         var config = UIButton.Configuration.filled()
         
         let button = UIButton(type: .system)
+        button.tintColor = UIColor.myDefaultColor
         button.configuration = config
         button.addTarget(self, action: #selector(pressButton), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false

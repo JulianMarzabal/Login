@@ -9,12 +9,45 @@ import UIKit
 import CoreML
 
 class FirstViewController: UIViewController {
+    var viewmodel: FirstViewViewModel
+    init(viewmodel: FirstViewViewModel) {
+        self.viewmodel = viewmodel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    lazy var label:UILabel = {
+        let label = UILabel()
+        label.text = "Select Image"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    lazy var imageView:UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "inputCar")
+        imageView.contentMode = .scaleAspectFit
+        imageView.isUserInteractionEnabled = true
+        
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    lazy var pickerView:UIImagePickerController = {
+        let picker = UIImagePickerController()
+        picker.sourceType = .photoLibrary
+        picker.delegate = self
 
+        return picker
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .green
-        modeling()
-        title = "first View controller"
+        setupUI()
+        setContraints()
+        viewmodel.modeling()
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -22,65 +55,53 @@ class FirstViewController: UIViewController {
         
     }
     
-    func modeling() {
-        if let modelURL = Bundle.main.url(forResource: "YOLOv3Tiny", withExtension: "mlmodelc") {
-            do {
-                let model = try MLModel(contentsOf: modelURL)
-                         guard let inputImage = UIImage(named: "firstInput") else { return }
-                guard let resizedImage = inputImage.resizeImage(inputImage, to:CGSize(width: 416, height: 416)) else { return }
-                         guard let pixelBuffer = resizedImage.pixelBuffer() else { return }
-                         
-                         // Crear una instancia de tu modelo
-                         let yoloModel = try YOLOv3Tiny(configuration: MLModelConfiguration())
-                
-                
-                
-                         
-                         // Crear una instancia de YOLOv3TinyInput
-                         let yoloInput = YOLOv3TinyInput(image: pixelBuffer)
-                
-                         // Obtener la descripción del modelo
-                         let modelDescription = yoloModel.model.modelDescription
-                
-                         
-                        
-                         
-                         // Realizar inferencias con el pixelBuffer
-                         let predictions = try yoloModel.predictions(inputs: [yoloInput])
-                
-                
+    private func setupUI() {
+        title = "Core ML"
+        view.backgroundColor = .green
+        view.addSubview(label)
+        view.addSubview(imageView)
+        
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(didTapImage))
+        tap.numberOfTapsRequired = 1
+        imageView.addGestureRecognizer(tap)
     
-                
-                         
-                         // Procesar las predicciones obtenidas
-                         for prediction in predictions {
-                             print(prediction)
-                             let classIndex = prediction.featureNames
-                             let confidence = prediction.confidence
-                             let boundingBox = prediction.coordinates
-                             
-                         
-                             
-                             print(classIndex)
-                             print(confidence)
-                             print(boundingBox)
-                             // Realizar las acciones necesarias con las predicciones
-                             // ...
-                         }
-                
-                
-                
-    
-            } catch {
-                print("Error al cargar el modelo: \(error)")
-            }
-        } else {
-            print("No se encontró el archivo del modelo.")
-        }
+    }
+    @objc private func didTapImage(){
+        present(pickerView, animated: true)
+    }
+   private  func setContraints(){
+        NSLayoutConstraint.activate([
+            imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
+            imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            //imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            //imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            imageView.widthAnchor.constraint(equalToConstant: 400), // Ancho de la imagen
+            imageView.heightAnchor.constraint(equalToConstant: 400),
+            
+            label.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 10),
+            label.centerXAnchor.constraint(equalTo: imageView.centerXAnchor)
+            
+        ])
     }
     
     
+    
+    
 
     
 
+}
+
+extension FirstViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true)
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {return}
+        
+        imageView.image = image
+    }
+    
+    
 }

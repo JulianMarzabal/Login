@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Firebase
+import GoogleSignIn
 
 class HomeViewController: UIViewController {
     private var viewmodel: HomeViewModel
@@ -19,56 +21,74 @@ class HomeViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    private lazy var emailTextField:UITextField = {
-        let textField = UITextField()
-        textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 0))
-        textField.leftViewMode = .always
-        textField.placeholder = "Escribe tu email"
-        textField.layer.cornerRadius = 10
-        textField.layer.borderColor = UIColor.black.cgColor
-        textField.layer.borderWidth = 1
-        textField.autocapitalizationType = .none
-        textField.autocorrectionType = .no
-        textField.returnKeyType = .done
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        return textField
+    private lazy var titleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Welcome Back"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        label.font = .systemFont(ofSize: 30)
+        
+        
+        
+       return label
     }()
-    private lazy var passwordTextField: UITextField = {
-        let textField = UITextField()
-        textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 0))
-        textField.leftViewMode = .always
-        textField.placeholder = "Escribe tu contraseña "
-        textField.layer.cornerRadius = 10
-        textField.isSecureTextEntry = true
-        textField.layer.borderColor = UIColor.black.cgColor
-        textField.layer.borderWidth = 1
-        textField.autocapitalizationType = .none
-        textField.autocorrectionType = .no
-        textField.returnKeyType = .done
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        return textField
+    private lazy var  tableView:UITableView = {
+        let tableView = UITableView()
+        tableView.separatorColor = .black
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.registerCells()
+        
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return tableView
     }()
-    
-    private lazy var button: UIButton = {
+//
+//    private lazy var googleSignInButton: GIDSignInButton = {
+//        let button = GIDSignInButton()
+//
+//        button.addTarget(self, action: #selector(signinPressed), for: .touchUpInside)
+//        button.translatesAutoresizingMaskIntoConstraints = false
+//        return button
+//    }()
+    private lazy var googleSignInButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Enter", for: .normal)
-        button.tintColor = .systemBlue
-        button.backgroundColor = .systemBlue
-        button.setTitleColor(UIColor.black, for: .normal)
-        button.layer.cornerRadius = 10
-        button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.systemBlue.cgColor
+        
+        button.backgroundColor = .white
+        button.setTitle("Sign In with Google", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.layer.cornerRadius = 4
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOffset = CGSize(width: 0, height: 2)
+        button.layer.shadowOpacity = 0.4
+        button.layer.shadowRadius = 3
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        // Agregar la imagen del icono de Google al botón
+        let googleIconImage = UIImage(named: "googleICON")
+     
+
+        let resizedImage = googleIconImage?.resize(to: CGSize(width: 20, height: 20))
+        button.setImage(resizedImage, for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
+        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 12) // Espacio entre el icono y el texto
+        button.addTarget(self, action: #selector(signinPressed), for: .touchUpInside)
+        
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         return button
     }()
+    
+   
+    
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
-        setupConstraints()
+        configureUI()
+        viewmodel.onViewDidLoad()
+        viewmodel.onFinishLoading = { [weak self] in
+            self?.tableView.reloadData()
+        }
+       
         
     }
     
@@ -77,62 +97,85 @@ class HomeViewController: UIViewController {
 //        super.viewWillAppear(animated)
 //        self.navigationItem.setHidesBackButton(true, animated: true)
 //    }
-    
-    private func setupView(){
-        navigationItem.largeTitleDisplayMode = .always
-    
-        title = "Login"
-        view.backgroundColor = .systemBackground
-        view.addSubview(emailTextField)
-        view.addSubview(passwordTextField)
-        view.addSubview(button)
-    }
-    
-    private func setupConstraints(){
-        NSLayoutConstraint.activate([
-            emailTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 60),
-            emailTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -60),
-            emailTextField.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            
-            passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 30),
-            passwordTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 60),
-            passwordTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -60),
-            
-            button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            button.centerYAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 40),
-            button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 90),
-            button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -90)
+    func configureUI() {
+        view.backgroundColor = .white
+        view.addSubview(titleLabel)
+        view.addSubview(tableView)
+        view.addSubview(googleSignInButton)
         
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 2),
+            //google button
+            
+            googleSignInButton.topAnchor.constraint(equalTo: tableView.bottomAnchor),
+            googleSignInButton.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 30),
+            googleSignInButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -30),
+            tableView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor,constant: 30),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: -350),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 30),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -30)
         ])
     }
     
-    @objc private  func buttonTapped() {
-       
-        validateFormat()
-        
+    @objc func signinPressed() {
+        viewmodel.singinWithGoogle()
     }
-    
-    private func validateFormat() {
-        guard let email = emailTextField.text,let password = passwordTextField.text else {return}
-        
-        if viewmodel.validateEmail(email: email) && viewmodel.validatePassword(password: password) {
-             viewmodel.validateUser(email: email, password: password) 
-                //viewmodel.delegate?.toFirstView()
-                print("es true")
-        }
-        else if !viewmodel.validateEmail(email: email) {
-            
-            viewmodel.delegate?.showPromptView()
-        } else if !viewmodel.validatePassword(password: password){
-            
-            print("password no valida")
-            
-        }
-        
-    }
+  
     
     
 
 
 }
-
+extension HomeViewController: UITableViewDelegate,UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        viewmodel.items.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let item = viewmodel.items[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: item.identifier, for: indexPath)
+        cell.separatorInset = UIEdgeInsets(top: 0, left: cell.bounds.size.width, bottom: 0, right: 0)
+        cell.selectionStyle = .none
+        switch item {
+        case let .input(text,inputType ,handler):
+            guard let inputCell = cell as? TextFieldWrapper else {return UITableViewCell()}
+            inputCell.configure(model: .init(placeholderText: text,handler: handler, inputType:inputType ))
+            return inputCell
+            
+        case let .button(text, handler):
+            guard let buttonCell = cell as? ButtonWrapper else {return UITableViewCell()}
+            buttonCell.configure(model: .init(buttonTitle: text, handler: handler))
+            
+            
+            return buttonCell
+        case .label(text: let text):
+            guard let labelCell = cell as? LabelWrapper else {return UITableViewCell()}
+            labelCell.configure(model: .init(text: text, handler: nil))
+            return labelCell
+        }
+    }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 30
+    }
+//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        let startIndex = 0
+//          let endIndex = 12
+//          let interval = 2
+//        cell.selectionStyle = .none
+//        
+//          
+//          if indexPath.row >= startIndex && indexPath.row <= endIndex && (indexPath.row - startIndex) % interval == 0 {
+//              // Ocultar el separador de la celda
+//              cell.separatorInset = UIEdgeInsets(top: 0, left: cell.bounds.size.width, bottom: 0, right: 0)
+//          } else {
+//              // Mostrar el separador de la celda
+//              cell.separatorInset = UIEdgeInsets.zero
+//          }
+//    }
+    
+    
+}
