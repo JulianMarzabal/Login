@@ -16,10 +16,12 @@ class MainCoordinator {
     }
     
     func start() {
-        let vm = RegisterViewModel()
-        vm.delegate = self
-
-        let vc = RegisterViewController(viewmodel: vm)
+//        let vm = RegisterViewModel()
+//        vm.delegate = self
+//
+//        let vc = RegisterViewController(viewmodel: vm)
+        let vm = FirstViewViewModel()
+        let vc = FirstViewController(viewmodel: vm)
         
         
         navigationController.pushViewController(vc, animated: true)

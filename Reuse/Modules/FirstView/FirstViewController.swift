@@ -10,6 +10,7 @@ import CoreML
 
 class FirstViewController: UIViewController {
     var viewmodel: FirstViewViewModel
+    var photoModel: myPhotoModel?
     init(viewmodel: FirstViewViewModel) {
         self.viewmodel = viewmodel
         super.init(nibName: nil, bundle: nil)
@@ -27,7 +28,7 @@ class FirstViewController: UIViewController {
     }()
     lazy var imageView:UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "inputCar")
+        //imageView.image = UIImage(named: "inputCar")
         imageView.contentMode = .scaleAspectFit
         imageView.isUserInteractionEnabled = true
         
@@ -44,9 +45,15 @@ class FirstViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewmodel.fetchPhotos()
         setupUI()
         setContraints()
         viewmodel.modeling()
+        setupImage()
+      
+        
+
+      
         
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -60,6 +67,8 @@ class FirstViewController: UIViewController {
         view.backgroundColor = .green
         view.addSubview(label)
         view.addSubview(imageView)
+        
+        
         
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(didTapImage))
@@ -76,14 +85,22 @@ class FirstViewController: UIViewController {
             imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             //imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             //imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            imageView.widthAnchor.constraint(equalToConstant: 400), // Ancho de la imagen
-            imageView.heightAnchor.constraint(equalToConstant: 400),
+            imageView.widthAnchor.constraint(equalToConstant: 300), // Ancho de la imagen
+            imageView.heightAnchor.constraint(equalToConstant: 300),
             
             label.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 10),
             label.centerXAnchor.constraint(equalTo: imageView.centerXAnchor)
             
         ])
     }
+    
+    func setupImage() {
+        guard let url = URL(string: viewmodel.myPhotoModel.first?.url ?? "") else {return}
+        print("A CONTINUACION LA URL")
+        print(url)
+        imageView.sd_setImage(with: url)
+    }
+    
     
     
     

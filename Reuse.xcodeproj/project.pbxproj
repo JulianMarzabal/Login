@@ -15,6 +15,9 @@
 		1E3C50CA2A29346100F7859B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E3C50C92A29346100F7859B /* Assets.xcassets */; };
 		1E3C50CD2A29346100F7859B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E3C50CB2A29346100F7859B /* LaunchScreen.storyboard */; };
 		1E3C50D52A29359400F7859B /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3C50D42A29359400F7859B /* MainCoordinator.swift */; };
+		1E483B2F2A42628500FBB462 /* api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E483B2E2A42628500FBB462 /* api.swift */; };
+		1E483B322A42634600FBB462 /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E483B312A42634600FBB462 /* PhotoModel.swift */; };
+		1E483B342A4264D000FBB462 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E483B332A4264D000FBB462 /* APIError.swift */; };
 		1E6FDE1D2A2CEBA800D5B160 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6FDE1C2A2CEBA800D5B160 /* HomeViewModel.swift */; };
 		1E6FDE222A2CF3CA00D5B160 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6FDE212A2CF3CA00D5B160 /* FirstViewController.swift */; };
 		1E6FDE242A2D348200D5B160 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1E6FDE232A2D348200D5B160 /* GoogleService-Info.plist */; };
@@ -39,9 +42,11 @@
 		1E754BB92A32815A00BF2F0C /* TableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E754BB82A32815A00BF2F0C /* TableView+Extensions.swift */; };
 		1E754BBB2A329AB500BF2F0C /* LabelWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E754BBA2A329AB500BF2F0C /* LabelWrapper.swift */; };
 		1E754BBD2A32A23D00BF2F0C /* ButtonWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E754BBC2A32A23D00BF2F0C /* ButtonWrapper.swift */; };
+		1E7A7F8F2A410CD300618D24 /* Resnet50FP16.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1E7A7F8E2A410CD300618D24 /* Resnet50FP16.mlmodel */; };
+		1E7A7F912A411C5600618D24 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7A7F902A411C5600618D24 /* Double+Extensions.swift */; };
+		1E8197F02A451BD00035B31E /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 1E8197EF2A451BD00035B31E /* SDWebImage */; };
 		1E892A862A3F533C002B11AB /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 1E892A852A3F533C002B11AB /* FacebookCore */; };
 		1E892A882A3F533C002B11AB /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 1E892A872A3F533C002B11AB /* FacebookLogin */; };
-		1EC093E02A2FDFCC0006F636 /* YOLOv3Tiny.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1EC093DF2A2FDFCC0006F636 /* YOLOv3Tiny.mlmodel */; };
 		1EC093E22A2FE1B60006F636 /* FirstViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC093E12A2FE1B60006F636 /* FirstViewViewModel.swift */; };
 		1EC093E72A2FE61C0006F636 /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC093E62A2FE61C0006F636 /* ImageExtension.swift */; };
 		71D4147F6B5CD3F910F325D6 /* Pods_Reuse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D908AD2FC1D16F4AF9BB2E6 /* Pods_Reuse.framework */; };
@@ -59,6 +64,9 @@
 		1E3C50CC2A29346100F7859B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1E3C50CE2A29346100F7859B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E3C50D42A29359400F7859B /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		1E483B2E2A42628500FBB462 /* api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = api.swift; sourceTree = "<group>"; };
+		1E483B312A42634600FBB462 /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
+		1E483B332A4264D000FBB462 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		1E6FDE1C2A2CEBA800D5B160 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		1E6FDE212A2CF3CA00D5B160 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		1E6FDE232A2D348200D5B160 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -70,7 +78,9 @@
 		1E754BB82A32815A00BF2F0C /* TableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableView+Extensions.swift"; sourceTree = "<group>"; };
 		1E754BBA2A329AB500BF2F0C /* LabelWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelWrapper.swift; sourceTree = "<group>"; };
 		1E754BBC2A32A23D00BF2F0C /* ButtonWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWrapper.swift; sourceTree = "<group>"; };
-		1EC093DF2A2FDFCC0006F636 /* YOLOv3Tiny.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = YOLOv3Tiny.mlmodel; sourceTree = "<group>"; };
+		1E7A7F8E2A410CD300618D24 /* Resnet50FP16.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Resnet50FP16.mlmodel; sourceTree = "<group>"; };
+		1E7A7F902A411C5600618D24 /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
+		1E892A892A3F5936002B11AB /* Reuse.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Reuse.entitlements; sourceTree = "<group>"; };
 		1EC093E12A2FE1B60006F636 /* FirstViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewViewModel.swift; sourceTree = "<group>"; };
 		1EC093E62A2FE61C0006F636 /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
 		8516A340E9B514E7095BF681 /* Pods-Reuse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reuse.release.xcconfig"; path = "Target Support Files/Pods-Reuse/Pods-Reuse.release.xcconfig"; sourceTree = "<group>"; };
@@ -98,6 +108,7 @@
 				1E6FDE2F2A2D34F300D5B160 /* FirebaseAuthCombine-Community in Frameworks */,
 				1E6FDE392A2D34F300D5B160 /* FirebaseInstallations in Frameworks */,
 				71D4147F6B5CD3F910F325D6 /* Pods_Reuse.framework in Frameworks */,
+				1E8197F02A451BD00035B31E /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +136,9 @@
 		1E3C50BF2A29345F00F7859B /* Reuse */ = {
 			isa = PBXGroup;
 			children = (
+				1E483B302A42633600FBB462 /* Model */,
+				1E483B2D2A42627900FBB462 /* API */,
+				1E892A892A3F5936002B11AB /* Reuse.entitlements */,
 				1EC093E52A2FE60C0006F636 /* Extensions */,
 				1E6FDE1E2A2CF2E200D5B160 /* Modules */,
 				1E3C50C02A29345F00F7859B /* AppDelegate.swift */,
@@ -136,6 +150,23 @@
 				1E3C50D42A29359400F7859B /* MainCoordinator.swift */,
 			);
 			path = Reuse;
+			sourceTree = "<group>";
+		};
+		1E483B2D2A42627900FBB462 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				1E483B2E2A42628500FBB462 /* api.swift */,
+				1E483B332A4264D000FBB462 /* APIError.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		1E483B302A42633600FBB462 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1E483B312A42634600FBB462 /* PhotoModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		1E6FDE1E2A2CF2E200D5B160 /* Modules */ = {
@@ -162,8 +193,8 @@
 			isa = PBXGroup;
 			children = (
 				1E6FDE212A2CF3CA00D5B160 /* FirstViewController.swift */,
-				1EC093DF2A2FDFCC0006F636 /* YOLOv3Tiny.mlmodel */,
 				1EC093E12A2FE1B60006F636 /* FirstViewViewModel.swift */,
+				1E7A7F8E2A410CD300618D24 /* Resnet50FP16.mlmodel */,
 			);
 			path = FirstView;
 			sourceTree = "<group>";
@@ -204,6 +235,7 @@
 				1EC093E62A2FE61C0006F636 /* ImageExtension.swift */,
 				1E754BB82A32815A00BF2F0C /* TableView+Extensions.swift */,
 				1E14A53E2A364F3800FA5B72 /* UIColor+Extensions.swift */,
+				1E7A7F902A411C5600618D24 /* Double+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -259,6 +291,7 @@
 				1E6FDE3E2A2D34F300D5B160 /* FirebaseStorage */,
 				1E892A852A3F533C002B11AB /* FacebookCore */,
 				1E892A872A3F533C002B11AB /* FacebookLogin */,
+				1E8197EF2A451BD00035B31E /* SDWebImage */,
 			);
 			productName = Reuse;
 			productReference = 1E3C50BD2A29345F00F7859B /* Reuse.app */;
@@ -291,6 +324,7 @@
 			packageReferences = (
 				1E6FDE252A2D34F300D5B160 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				1E892A842A3F533C002B11AB /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
+				1E8197EE2A451BD00035B31E /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 1E3C50BE2A29345F00F7859B /* Products */;
 			projectDirPath = "";
@@ -361,14 +395,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E7A7F8F2A410CD300618D24 /* Resnet50FP16.mlmodel in Sources */,
 				1E3C50C52A29345F00F7859B /* HomeViewController.swift in Sources */,
-				1EC093E02A2FDFCC0006F636 /* YOLOv3Tiny.mlmodel in Sources */,
 				1EC093E72A2FE61C0006F636 /* ImageExtension.swift in Sources */,
 				1EC093E22A2FE1B60006F636 /* FirstViewViewModel.swift in Sources */,
+				1E7A7F912A411C5600618D24 /* Double+Extensions.swift in Sources */,
 				1E14A53D2A35EC0700FA5B72 /* ValidateFormStrategy.swift in Sources */,
 				1E3C50D52A29359400F7859B /* MainCoordinator.swift in Sources */,
+				1E483B2F2A42628500FBB462 /* api.swift in Sources */,
+				1E483B322A42634600FBB462 /* PhotoModel.swift in Sources */,
 				1E754BBD2A32A23D00BF2F0C /* ButtonWrapper.swift in Sources */,
 				1E754BB72A327C6A00BF2F0C /* TextFieldWrapper.swift in Sources */,
+				1E483B342A4264D000FBB462 /* APIError.swift in Sources */,
 				1E6FDE422A2D41B800D5B160 /* RegisterViewController.swift in Sources */,
 				1E754BB92A32815A00BF2F0C /* TableView+Extensions.swift in Sources */,
 				1E14A53F2A364F3800FA5B72 /* UIColor+Extensions.swift in Sources */,
@@ -517,6 +555,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Reuse/Reuse.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5QYF925T95;
@@ -545,6 +584,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Reuse/Reuse.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5QYF925T95;
@@ -594,6 +634,14 @@
 		1E6FDE252A2D34F300D5B160 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		1E8197EE2A451BD00035B31E /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
 			requirement = {
 				branch = master;
 				kind = branch;
@@ -674,6 +722,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1E6FDE252A2D34F300D5B160 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		1E8197EF2A451BD00035B31E /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1E8197EE2A451BD00035B31E /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
 		};
 		1E892A852A3F533C002B11AB /* FacebookCore */ = {
 			isa = XCSwiftPackageProductDependency;

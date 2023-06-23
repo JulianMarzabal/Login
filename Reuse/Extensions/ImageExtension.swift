@@ -42,11 +42,68 @@ extension UIImage {
         
         return target
     }
-    func resize(to size: CGSize) -> UIImage? {
+   
+    func resized(to targetSize: CGSize) -> CVPixelBuffer? {
+            let width = Int(targetSize.width)
+            let height = Int(targetSize.height)
+            
+            let attrs = [kCVPixelBufferCGImageCompatibilityKey: kCFBooleanTrue,
+                         kCVPixelBufferCGBitmapContextCompatibilityKey: kCFBooleanTrue] as CFDictionary
+            
+            var pixelBuffer: CVPixelBuffer?
+            let status = CVPixelBufferCreate(kCFAllocatorDefault,
+                                             width,
+                                             height,
+                                             kCVPixelFormatType_32ARGB,
+                                             attrs,
+                                             &pixelBuffer)
+            
+            guard let buffer = pixelBuffer, status == kCVReturnSuccess else {
+                return nil
+            }
+            
+            CVPixelBufferLockBaseAddress(buffer, CVPixelBufferLockFlags(rawValue: 0))
+            let pixelData = CVPixelBufferGetBaseAddress(buffer)
+            
+            let colorSpace = CGColorSpaceCreateDeviceRGB()
+            let context = CGContext(data: pixelData,
+                                    width: width,
+                                    height: height,
+                                    bitsPerComponent: 8,
+                                    bytesPerRow: CVPixelBufferGetBytesPerRow(buffer),
+                                    space: colorSpace,
+                                    bitmapInfo: CGImageAlphaInfo.noneSkipFirst.rawValue)
+            
+            context?.translateBy(x: 0, y: CGFloat(height))
+            context?.scaleBy(x: 1.0, y: -1.0)
+            
+            UIGraphicsPushContext(context!)
+            self.draw(in: CGRect(x: 0, y: 0, width: targetSize.width, height: targetSize.height))
+            UIGraphicsPopContext()
+            
+            CVPixelBufferUnlockBaseAddress(buffer, CVPixelBufferLockFlags(rawValue: 0))
+            
+            return buffer
+        }
+    
+    func resizeUIImage(to size: CGSize) -> UIImage? {
            UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
-           self.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+           self.draw(in: CGRect(origin: .zero, size: size))
            let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
            UIGraphicsEndImageContext()
            return resizedImage
        }
-}
+    
+    
+    }
+
+
+    
+
+
+
+
+
+
+
+

@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import GoogleSignIn
+import FacebookLogin
 
 class HomeViewController: UIViewController {
     private var viewmodel: HomeViewModel
@@ -67,13 +68,36 @@ class HomeViewController: UIViewController {
         let googleIconImage = UIImage(named: "googleICON")
      
 
-        let resizedImage = googleIconImage?.resize(to: CGSize(width: 20, height: 20))
+        let resizedImage = googleIconImage?.resizeUIImage(to: CGSize(width: 20, height: 20))
         button.setImage(resizedImage, for: .normal)
         button.imageView?.contentMode = .scaleAspectFit
-        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 12) // Espacio entre el icono y el texto
+        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -12, bottom: 0, right: 12)
+            button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: -12)
         button.addTarget(self, action: #selector(signinPressed), for: .touchUpInside)
         
         button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    private lazy var facebookLoginButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .white
+        button.setTitle("Sign In with Facebook", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.layer.cornerRadius = 4
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOffset = CGSize(width: 0, height: 2)
+        button.layer.shadowOpacity = 0.4
+        button.layer.shadowRadius = 3
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        let facebookIconImage = UIImage(named: "FACEICON")
+        let resizedImage = facebookIconImage?.resizeUIImage(to: CGSize(width: 20, height: 20))
+        button.setImage(resizedImage, for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
+        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -12, bottom: 0, right: 12)
+            button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: -12)
+        button.addTarget(self, action: #selector(facebookSignInPressed), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
         return button
     }()
     
@@ -102,6 +126,7 @@ class HomeViewController: UIViewController {
         view.addSubview(titleLabel)
         view.addSubview(tableView)
         view.addSubview(googleSignInButton)
+        view.addSubview(facebookLoginButton)
         
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -114,12 +139,21 @@ class HomeViewController: UIViewController {
             tableView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor,constant: 30),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: -350),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 30),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -30)
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -30),
+            
+            facebookLoginButton.topAnchor.constraint(equalTo: googleSignInButton.bottomAnchor, constant: 20),
+            facebookLoginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 30),
+            facebookLoginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -30)
         ])
     }
     
     @objc func signinPressed() {
         viewmodel.singinWithGoogle()
+    }
+    
+    @objc func facebookSignInPressed() {
+    
+        viewmodel.signInWithFacebook()
     }
   
     

@@ -7,64 +7,96 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "474957F3-BD67-44DA-BD37-A26B2558CC1E"
+            uuid = "3BB5FB5D-11F5-47E8-A6A1-B63B1BCABCA0"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Reuse/Modules/FirstView/FirstViewViewModel.swift"
+            filePath = "Reuse/API/api.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "modeling()"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "getPhotos()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "404CEBD3-FFF9-4CD8-9C3D-A233ED63908A"
+            uuid = "637C7DA4-D2A6-4A58-B812-9CEE713C9F54"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Reuse/Modules/FirstView/FirstViewViewModel.swift"
+            filePath = "Reuse/API/api.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "modeling()"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "getPhotos()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4D8E57C9-A970-4A71-B9A2-23FF63364DE0"
+            uuid = "5200FD77-299F-43FB-91A8-D8B18DA29AA8"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Reuse/Modules/FirstView/FirstViewViewModel.swift"
+            filePath = "Reuse/API/api.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "modeling()"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "getPhotos()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "62F34932-27D1-48F5-883E-2D9FFA1C1369"
-            shouldBeEnabled = "No"
+            uuid = "1B47B15F-112C-4408-B34D-1D9D4F00C3BD"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Reuse/Modules/FirstView/FirstViewViewModel.swift"
+            filePath = "Reuse/Modules/FirstView/FirstViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "modeling()"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "setupImage()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5F8B4BD0-9163-4D1C-9488-0F0385EBD0BA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Reuse/Modules/FirstView/FirstViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "setupImage()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FAB9716C-93A9-41DD-9D36-2EF9CAC710E8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Reuse/Modules/FirstView/FirstViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "setupImage()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

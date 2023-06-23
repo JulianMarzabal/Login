@@ -8,6 +8,8 @@
 import Foundation
 import FirebaseAuth
 import GoogleSignIn
+import FacebookLogin
+import FBSDKLoginKit
 
 protocol HomeViewModelDelegate:AnyObject {
     func toFirstView()
@@ -99,6 +101,27 @@ class HomeViewModel {
             }
             
             self.delegate?.toFirstView()
+        }
+    }
+    
+    func signInWithFacebook() {
+        let loginManager = LoginManager()
+        
+        loginManager.logIn(permissions: ["public_profile", "email"], from: nil) { result, error in
+            if let error = error {
+                // Maneja el error
+                print("Error: \(error.localizedDescription)")
+            } else if let result = result, !result.isCancelled {
+                if let token = AccessToken.current, token.hasGranted("email") {
+                    // El permiso "email" se ha otorgado
+                    self.delegate?.toFirstView()
+                    // Realiza la publicación de contenido
+                } else {
+                    loginManager.logIn(permissions: ["email"], from: nil) { result, error in
+                        // Procesa el resultado o error
+                    }
+                }
+            }
         }
     }
     
