@@ -63,8 +63,7 @@ struct ValidateName: Validator {
         guard !text.isEmpty else {
             return false
         }
-        
-        
+   
         let nameRegex = "^[a-zA-ZáÁéÉíÍóÓúÚüÜñÑ ]+$"
         let namePredicate = NSPredicate(format: "SELF MATCHES %@", nameRegex)
         return namePredicate.evaluate(with: text)

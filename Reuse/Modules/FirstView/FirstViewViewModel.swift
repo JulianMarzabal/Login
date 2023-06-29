@@ -11,33 +11,64 @@ import CoreML
 import Vision
 import SDWebImage
 
-class FirstViewViewModel {
+enum State{
+    case done
+    case loading
     
+}
+
+struct ImageProcessed {
+    var predictedLabel: String
+    var probability: String
+    var image: URL
+    var predictionText: String {
+        "Prediction: \(predictedLabel.replacingOccurrences(of: ", ", with: "\n"))"
+    }
+    var probabilityText: String {
+        "Probability: \(probability)"
+    }
+
+    
+    
+}
+
+class FirstViewViewModel {
+    private var pageIndex:Int = 0
+    private var firstLoad: Bool = true
+    private var state: State = .done
     var api: APIProtocol = API.shared
     //let model = Resnet50FP16()
     var myPhotoModel: [myPhotoModel] = []
+    var currentIndex = 0
+    var onNextImageHandler: ((ImageProcessed)->Void)?
     
-    func modeling() {
-    let image = UIImage(named: "andyInput")
-        guard let inputImage = image?.resized(to: CGSize(width: 224, height: 224)) else {return}
+    private var processedImage: ImageProcessed?{
+        didSet {
+            guard let processedImage = processedImage else {
+                return
+            }
+            onNextImageHandler?(processedImage)
+
+        }
+    }
     
-    let input = Resnet50FP16Input(image:inputImage)
+    
+    func modeling(urlInput: URL) {
+        
+
         do {
+          
+            let input = try Resnet50FP16Input(imageAt: urlInput)
             let model = try Resnet50FP16(configuration: MLModelConfiguration())
             let predictions = try model.prediction(input: input)
             let output = Resnet50FP16Output(classLabelProbs: predictions.classLabelProbs, classLabel: predictions.classLabel)
             
             let maxProbability = output.classLabelProbs.max { $0.value < $1.value }
-            let predictedClassLabel = maxProbability?.key
+            guard let predictedLabel = maxProbability?.key, let probabilty = maxProbability?.value.toPercentageString() else { return }
+           
+            processedImage = .init(predictedLabel: predictedLabel , probability: probabilty, image: urlInput)
             
-            let porcentProbabilities = maxProbability?.value.toPercentageString()
-            
-
-            // Imprimir la predicción final
-            print(predictedClassLabel)
-            print(porcentProbabilities)
-            
-            
+   
             
         } catch {
             print(error.localizedDescription)
@@ -49,26 +80,33 @@ class FirstViewViewModel {
         
     }
     func fetchPhotos() {
+        state = .loading
             Task {
                 do {
-                    let photoModel = try await api.getPhotos()
+                    let photoModel = try await api.getPhotos(page: pageIndex)
                    // let ids = photoModel.results.map { $0.id }
                    // let urls = photoModel.results.map {$0.urls.full}
                     print("--------------------")
                     let photoResult = photoModel.results
                     createModel(photos: photoResult)
+                    if firstLoad {
+                        state = .done
+                        processImage()
+                        firstLoad = false
+                    }
+                    
                    
-                    
-                    
                     print("successfull data")
                 } catch {
                     print(error.localizedDescription)
                 }
+                state = .done
             }
+        
     }
     
     func createModel(photos: [PhotoResult]) {
-        myPhotoModel = []
+       
         
         for photo in photos {
             myPhotoModel.append(.init(id:photo.id, url: photo.urls.full))
@@ -77,12 +115,25 @@ class FirstViewViewModel {
         }
     }
     
-    func setimage(){
-        let url = myPhotoModel.first?.url
-        
-    }
+//    func getNextImageUrl() -> URL? {
+////
+////        currentIndex = (currentIndex + 1) % myPhotoModel.count
+////        return URL(string: myPhotoModel[currentIndex].url)
+//
+//    }
+
     
-   
+    func processImage() {
+        guard currentIndex < myPhotoModel.count, state == .done else {return}
+        
+        guard let url = URL(string: myPhotoModel[currentIndex].url) else {return}
+        modeling(urlInput: url)
+        currentIndex = (currentIndex + 1)
+        if currentIndex == myPhotoModel.count - 1 {
+            pageIndex += 1
+            fetchPhotos()
+        }
+    }
     
     
     

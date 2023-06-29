@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreML
+import SkeletonView
 
 class FirstViewController: UIViewController {
     var viewmodel: FirstViewViewModel
@@ -22,15 +23,33 @@ class FirstViewController: UIViewController {
     
     lazy var label:UILabel = {
         let label = UILabel()
-        label.text = "Select Image"
+        label.text = "Next Image"
+        label.numberOfLines = 0
+        label.font = .systemFont(ofSize: 22, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    lazy var nextButton: UIButton = {
+        let button = UIButton()
+        let image = UIImage(systemName: "arrow.forward")?.withTintColor(.black, renderingMode: .alwaysOriginal)
+        let resizedImage = image?.resizableImage(withCapInsets: UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5), resizingMode: .stretch)
+           button.setImage(resizedImage, for: .normal)
+        button.addTarget(self, action: #selector(nextPrediction), for: .touchUpInside)
+        button.backgroundColor = .systemBlue
+        button.layer.cornerRadius = 8
+        button.tintColor = .systemBlue
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
     lazy var imageView:UIImageView = {
         let imageView = UIImageView()
-        //imageView.image = UIImage(named: "inputCar")
+        
+        
         imageView.contentMode = .scaleAspectFit
         imageView.isUserInteractionEnabled = true
+        imageView.layer.cornerRadius = 100
+        imageView.layer.masksToBounds = true
+        imageView.clipsToBounds = true
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -42,14 +61,31 @@ class FirstViewController: UIViewController {
 
         return picker
     }()
+    lazy var predictionLabel: UILabel = {
+        let label = UILabel()
+        label.text = "dogg"
+        label.font = .systemFont(ofSize: 16, weight: .semibold)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    lazy var probabilityLabel: UILabel = {
+        let label = UILabel()
+        label.text = "100%"
+        label.font = .systemFont(ofSize: 16, weight: .semibold)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        bindReaction()
         viewmodel.fetchPhotos()
         setupUI()
         setContraints()
-        viewmodel.modeling()
-        setupImage()
+        
+        
+     
       
         
 
@@ -64,9 +100,13 @@ class FirstViewController: UIViewController {
     
     private func setupUI() {
         title = "Core ML"
-        view.backgroundColor = .green
+        view.backgroundColor = .white
         view.addSubview(label)
+        view.addSubview(nextButton)
         view.addSubview(imageView)
+        view.addSubview(predictionLabel)
+        view.addSubview(probabilityLabel)
+   
         
         
         
@@ -83,24 +123,44 @@ class FirstViewController: UIViewController {
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
             imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            //imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            //imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            imageView.widthAnchor.constraint(equalToConstant: 300), // Ancho de la imagen
-            imageView.heightAnchor.constraint(equalToConstant: 300),
+            imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            imageView.widthAnchor.constraint(equalToConstant: 350), // Ancho de la imagen
+            imageView.heightAnchor.constraint(equalToConstant: 350),
             
             label.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 10),
-            label.centerXAnchor.constraint(equalTo: imageView.centerXAnchor)
+            label.centerXAnchor.constraint(equalTo: imageView.centerXAnchor),
+            nextButton.topAnchor.constraint(equalTo: label.bottomAnchor,constant: 10),
+            nextButton.centerXAnchor.constraint(equalTo: label.centerXAnchor),
+            nextButton.widthAnchor.constraint(equalToConstant: 100), // Ancho deseado del botón
+            nextButton.heightAnchor.constraint(equalToConstant: 50),
+            
+            predictionLabel.topAnchor.constraint(equalTo: nextButton.bottomAnchor,constant: 20),
+            predictionLabel.centerXAnchor.constraint(equalTo: nextButton.centerXAnchor),
+            probabilityLabel.topAnchor.constraint(equalTo: predictionLabel.bottomAnchor,constant: 10),
+            probabilityLabel.centerXAnchor.constraint(equalTo: predictionLabel.centerXAnchor),
+         
             
         ])
     }
     
-    func setupImage() {
-        guard let url = URL(string: viewmodel.myPhotoModel.first?.url ?? "") else {return}
-        print("A CONTINUACION LA URL")
-        print(url)
-        imageView.sd_setImage(with: url)
+
+   @objc func nextPrediction() {
+       viewmodel.processImage()
+       
     }
     
+    func bindReaction() {
+        viewmodel.onNextImageHandler = {[weak self] imageModel in
+            guard let self = self else {return}
+            DispatchQueue.main.async {
+                self.imageView.sd_setImage(with: imageModel.image)
+                self.predictionLabel.text = imageModel.predictionText
+                self.probabilityLabel.text = imageModel.probabilityText
+            }
+          
+        }
+    }
     
     
     
