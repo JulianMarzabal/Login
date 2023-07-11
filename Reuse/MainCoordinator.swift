@@ -16,12 +16,11 @@ class MainCoordinator {
     }
     
     func start() {
-//        let vm = RegisterViewModel()
-//        vm.delegate = self
-//
-//        let vc = RegisterViewController(viewmodel: vm)
-        let vm = FirstViewViewModel()
-        let vc = FirstViewController(viewmodel: vm)
+        let vm = RegisterViewModel()
+        vm.delegate = self
+
+        let vc = RegisterViewController(viewmodel: vm)
+       
         
         
         navigationController.pushViewController(vc, animated: true)
@@ -39,7 +38,7 @@ class MainCoordinator {
         navigationController.pushViewController(vc, animated: true)
     }
     func onPromptView() {
-        let view = ReusePrompt(onTapped: {[weak self ] in
+        let view = ReusePrompt(text: "", onTapped: {[weak self ] in
             guard let self = self else {return}
         })
         
@@ -52,6 +51,12 @@ class MainCoordinator {
     
 }
 extension MainCoordinator: HomeViewModelDelegate {
+    func showPromptView(text: String) {
+        let view = ReusePrompt(text: text, onTapped: {})
+        let vc = PopUpViewController(contentView:view)
+        navigationController.present(vc, animated: true)
+    }
+    
     func showPromptView() {
         onPromptView()
     }
@@ -61,6 +66,12 @@ extension MainCoordinator: HomeViewModelDelegate {
     }
 }
 extension MainCoordinator: RegisterViewDelegate{
+    func showError(text:String) {
+        let view = ReusePrompt(text: text, onTapped: {})
+        let vc = PopUpViewController(contentView:view)
+        navigationController.present(vc, animated: true)
+    }
+    
     func toHomeView() {
        onFirstView()
     }

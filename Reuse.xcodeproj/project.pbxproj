@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1E14A53D2A35EC0700FA5B72 /* ValidateFormStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E14A53C2A35EC0700FA5B72 /* ValidateFormStrategy.swift */; };
 		1E14A53F2A364F3800FA5B72 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E14A53E2A364F3800FA5B72 /* UIColor+Extensions.swift */; };
+		1E387C162A5B04FD00956DA9 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E387C152A5B04FD00956DA9 /* XCTest.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		1E3A2C5A2A4E2C7F004FB9D9 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 1E3A2C592A4E2C7F004FB9D9 /* SkeletonView */; };
 		1E3C50C12A29345F00F7859B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3C50C02A29345F00F7859B /* AppDelegate.swift */; };
 		1E3C50C32A29345F00F7859B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3C50C22A29345F00F7859B /* SceneDelegate.swift */; };
@@ -57,6 +58,7 @@
 		0D908AD2FC1D16F4AF9BB2E6 /* Pods_Reuse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Reuse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E14A53C2A35EC0700FA5B72 /* ValidateFormStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateFormStrategy.swift; sourceTree = "<group>"; };
 		1E14A53E2A364F3800FA5B72 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		1E387C152A5B04FD00956DA9 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		1E3C50BD2A29345F00F7859B /* Reuse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reuse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E3C50C02A29345F00F7859B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1E3C50C22A29345F00F7859B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E387C162A5B04FD00956DA9 /* XCTest.framework in Frameworks */,
 				1E892A882A3F533C002B11AB /* FacebookLogin in Frameworks */,
 				1E6FDE3B2A2D34F300D5B160 /* FirebaseRemoteConfig in Frameworks */,
 				1E892A862A3F533C002B11AB /* FacebookCore in Frameworks */,
@@ -254,6 +257,7 @@
 		F2B634D323D7B17AE274DC27 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1E387C152A5B04FD00956DA9 /* XCTest.framework */,
 				0D908AD2FC1D16F4AF9BB2E6 /* Pods_Reuse.framework */,
 			);
 			name = Frameworks;

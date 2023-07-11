@@ -11,9 +11,10 @@ import GoogleSignIn
 import FacebookLogin
 import FBSDKLoginKit
 
+
 protocol HomeViewModelDelegate:AnyObject {
     func toFirstView()
-    func showPromptView()
+    func showPromptView(text:String)
 }
 
 class HomeViewModel {
@@ -67,6 +68,7 @@ class HomeViewModel {
     private func loginUser() {
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
             if let error = error {
+                self.delegate?.showPromptView(text: "Incorrect email or password")
                 print("login error \(error.localizedDescription)")
             } else {
                 self.delegate?.toFirstView()
@@ -79,10 +81,11 @@ class HomeViewModel {
     
     
     func loginButtonPressed() {
-        loginUser()
-        if !email.isEmpty && !password.isEmpty {
-            loginUser()
+        guard !email.isEmpty && !password.isEmpty else {
+            delegate?.showPromptView(text: "Please complete the fields")
+            return
         }
+        loginUser()
         
     }
     func singinWithGoogle() {

@@ -32,6 +32,8 @@ struct ImageProcessed {
     
 }
 
+
+
 class FirstViewViewModel {
     private var pageIndex:Int = 0
     private var firstLoad: Bool = true
@@ -84,9 +86,6 @@ class FirstViewViewModel {
             Task {
                 do {
                     let photoModel = try await api.getPhotos(page: pageIndex)
-                   // let ids = photoModel.results.map { $0.id }
-                   // let urls = photoModel.results.map {$0.urls.full}
-                    print("--------------------")
                     let photoResult = photoModel.results
                     createModel(photos: photoResult)
                     if firstLoad {

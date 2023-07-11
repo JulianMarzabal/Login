@@ -36,6 +36,7 @@ class RegisterViewController: UIViewController {
     
     private lazy var  tableView:UITableView = {
         let tableView = UITableView()
+        tableView.backgroundColor = .backgroundColor
         tableView.separatorColor = .black
         tableView.dataSource = self
         tableView.delegate = self
@@ -64,7 +65,7 @@ class RegisterViewController: UIViewController {
     }
     
     func configureUI() {
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor.backgroundColor
         let loginButton = UIBarButtonItem(title: "Login", style: .plain, target: self, action: #selector(loginButtonTapped))
         navigationItem.rightBarButtonItem = loginButton
         view.addSubview(titleLabel)
@@ -81,8 +82,11 @@ class RegisterViewController: UIViewController {
     }
     
     @objc private func loginButtonTapped() {
+
         viewmodel.delegate?.toLoginView()
+        
     }
+    
     
     
 

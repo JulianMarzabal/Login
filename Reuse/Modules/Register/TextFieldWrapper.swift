@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import XCTest
 
 typealias TextHandler = (String)->Void
 struct TextFieldWrapperModel {
@@ -22,6 +23,15 @@ enum InputType {
     case email
     case password
     case anyType
+    var isVisible:Bool {
+        switch self {
+        case .password:
+            return false
+        default:
+            return true
+        }
+    
+    }
     var isSecure:Bool {
         switch self {
       
@@ -30,7 +40,9 @@ enum InputType {
         default:
             return false
         }
+    
     }
+    
     var validator: Validator {
         switch self {
             
@@ -79,19 +91,26 @@ class TextFieldWrapper:UITableViewCell {
          self.inputType = model.inputType
          self.textField.isSecureTextEntry = model.inputType.isSecure
          
+            
         
          
          configureUI()
+         if model.inputType == .password {
+             displayEyeIcon()
+         } else {
+             ""
+         }
          
     }
     
     private func configureUI() {
+        contentView.backgroundColor = .backgroundColor
         contentView.addSubview(textField)
         contentView.addSubview(separator)
         NSLayoutConstraint.activate([
             textField.topAnchor.constraint(equalTo: contentView.topAnchor),
             textField.bottomAnchor.constraint(equalTo: separator.topAnchor),
-            textField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            textField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -40),
             textField.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             
           
@@ -102,9 +121,11 @@ class TextFieldWrapper:UITableViewCell {
     }
     private lazy var textField: UITextField = {
         let textField = UITextField()
+        textField.alpha = 1
         textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         textField.leftViewMode = .always
         textField.delegate = self
+        textField.backgroundColor = .backgroundColor
 //        textField.layer.cornerRadius = 5
 //        textField.layer.borderColor = UIColor.black.cgColor
 //        textField.layer.borderWidth = 0.5
@@ -114,6 +135,41 @@ class TextFieldWrapper:UITableViewCell {
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
+    
+     lazy var eyeIcon: UIImageView = {
+         let eyeImage = UIImage(systemName: "eye")
+         let image = UIImageView(image: eyeImage)
+         image.backgroundColor = .backgroundColor
+         image.tintColor = .black
+         image.translatesAutoresizingMaskIntoConstraints = false
+         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+         image.addGestureRecognizer(tapGesture)
+         image.isUserInteractionEnabled = true
+         
+         return image
+    }()
+    
+    func displayEyeIcon() {
+        contentView.addSubview(eyeIcon)
+        NSLayoutConstraint.activate([
+            eyeIcon.leadingAnchor.constraint(equalTo: textField.trailingAnchor,constant: 1),
+            eyeIcon.topAnchor.constraint(equalTo: textField.topAnchor),
+            eyeIcon.bottomAnchor.constraint(equalTo: textField.bottomAnchor),
+           //eyeIcon.heightAnchor.constraint(equalToConstant: 50),
+            //eyeIcon.widthAnchor.constraint(equalToConstant: 50),
+        ])
+        
+    }
+    
+    @objc private func imageTapped() {
+        textField.isSecureTextEntry.toggle()
+        eyeIcon.image = textField.isSecureTextEntry ? UIImage(systemName: "eye.slash") : UIImage(systemName: "eye")
+
+    }
+    
+    
+    
+
     
 }
 extension TextFieldWrapper: UITextFieldDelegate {

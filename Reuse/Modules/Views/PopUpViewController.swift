@@ -6,8 +6,13 @@
 //
 
 import UIKit
+
+struct PopUpModel {
+    
+}
 protocol ViewButtonProtocol:UIView {
     var onTapped: ()-> Void { get set }
+   
 }
 
 class PopUpViewController: UIViewController {

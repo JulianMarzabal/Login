@@ -37,6 +37,7 @@ class HomeViewController: UIViewController {
         let tableView = UITableView()
         tableView.separatorColor = .black
         tableView.dataSource = self
+        tableView.backgroundColor = .backgroundColor
         tableView.delegate = self
         tableView.registerCells()
         
@@ -55,7 +56,7 @@ class HomeViewController: UIViewController {
     private lazy var googleSignInButton: UIButton = {
         let button = UIButton()
         
-        button.backgroundColor = .white
+        button.backgroundColor = .backgroundColor
         button.setTitle("Sign In with Google", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.layer.cornerRadius = 4
@@ -80,7 +81,7 @@ class HomeViewController: UIViewController {
     }()
     private lazy var facebookLoginButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .white
+        button.backgroundColor = .backgroundColor
         button.setTitle("Sign In with Facebook", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.layer.cornerRadius = 4
@@ -122,7 +123,7 @@ class HomeViewController: UIViewController {
 //        self.navigationItem.setHidesBackButton(true, animated: true)
 //    }
     func configureUI() {
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor.backgroundColor
         view.addSubview(titleLabel)
         view.addSubview(tableView)
         view.addSubview(googleSignInButton)

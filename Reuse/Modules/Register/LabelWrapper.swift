@@ -35,6 +35,7 @@ class LabelWrapper:UITableViewCell {
         let label = UILabel()
         label.font = .systemFont(ofSize: 16, weight: .semibold)
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = .backgroundColor
         return label
     
     }()

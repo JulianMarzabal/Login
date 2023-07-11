@@ -13,4 +13,8 @@ extension UIColor {
             let factor: CGFloat = 0.7 // Factor de oscurecimiento (80% del color original)
             return UIColor(red: 0.61 * factor, green: 0.61 * factor, blue: 0.76 * factor, alpha: 1.0)
         }
+    
+    static var backgroundColor:UIColor {
+        return UIColor(red: 1.0, green: 0.92, blue: 0.84, alpha: 1.0)
+    }
 }

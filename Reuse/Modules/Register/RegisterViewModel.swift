@@ -11,6 +11,7 @@ import FirebaseFirestore
 protocol RegisterViewDelegate:AnyObject {
     func  toLoginView()
     func toHomeView()
+    func showError(text:String)
 }
 
 
@@ -24,6 +25,7 @@ class RegisterViewModel {
     private var passwordConfirm: String = ""
     private var name: String = ""
     private var surname: String = ""
+    var docRef: DocumentReference!
     
     
     
@@ -62,27 +64,48 @@ class RegisterViewModel {
     }
     
     func registerButtonTapped() {
+        guard !name.isEmpty && !surname.isEmpty else {
+            showError(text: "name or surname empty")
+         return
+        }
         
-        if !email.isEmpty && !password.isEmpty && !passwordConfirm.isEmpty {
-            if password == passwordConfirm {
-                registerUser { [weak self] result in
-                    switch result {
-                    case .success(let user):
-                        print("Usuario creado con éxito: \(user)")
-                        self?.delegate?.toHomeView()
-                    case .failure(let error):
-                        print("Error: \(error.localizedDescription)")
-                    }
+        
+        guard !email.isEmpty && !password.isEmpty && !passwordConfirm.isEmpty else {
+            showError(text: "Incorrect email or password")
+            return
+            
+        }
+        guard password == passwordConfirm else {
+            showError(text: "Passwords do not match")
+            return
+            
+        }
+        
+            registerUser { [weak self] result in
+                switch result {
+                case .success(let user):
+                    self?.saveName(user: user)
+                    print("Usuario creado con éxito: \(user)")
+                    
+                    self?.delegate?.toHomeView()
+                case .failure(let error):
+                    print("Error: \(error.localizedDescription)")
                 }
-                
-                
-            } else {
-                print("Password no concuerdan")
             }
-            
-            
-        } else {
-            print("todo mlaaa")
+    }
+    
+    func showError(text:String) {
+        delegate?.showError(text: text)
+    }
+    func saveName(user:User){
+        let data: [String:Any] = ["Name": name, "surname": surname]
+        docRef = Firestore.firestore().collection("userNames").document(user.uid)
+        docRef.setData(data) { (error) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                print("data save")
+            }
         }
         
     }

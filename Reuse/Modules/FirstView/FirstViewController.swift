@@ -25,7 +25,8 @@ class FirstViewController: UIViewController {
         let label = UILabel()
         label.text = "Next Image"
         label.numberOfLines = 0
-        label.font = .systemFont(ofSize: 22, weight: .bold)
+        label.font = .italicSystemFont(ofSize: 22)
+        
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -63,6 +64,7 @@ class FirstViewController: UIViewController {
     }()
     lazy var predictionLabel: UILabel = {
         let label = UILabel()
+       
         label.text = "dogg"
         label.font = .systemFont(ofSize: 16, weight: .semibold)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -99,8 +101,11 @@ class FirstViewController: UIViewController {
     }
     
     private func setupUI() {
-        title = "Core ML"
-        view.backgroundColor = .white
+        let attributes = [NSAttributedString.Key.font: UIFont(name: "Helvetica-Bold", size: 20)!]
+         navigationController?.navigationBar.titleTextAttributes = attributes
+         navigationItem.title = "Object recognition"
+        
+        view.backgroundColor = UIColor.backgroundColor
         view.addSubview(label)
         view.addSubview(nextButton)
         view.addSubview(imageView)
@@ -121,21 +126,21 @@ class FirstViewController: UIViewController {
     }
    private  func setContraints(){
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
+            imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15),
             imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             imageView.widthAnchor.constraint(equalToConstant: 350), // Ancho de la imagen
             imageView.heightAnchor.constraint(equalToConstant: 350),
             
-            label.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 10),
+            label.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20),
             label.centerXAnchor.constraint(equalTo: imageView.centerXAnchor),
             nextButton.topAnchor.constraint(equalTo: label.bottomAnchor,constant: 10),
             nextButton.centerXAnchor.constraint(equalTo: label.centerXAnchor),
             nextButton.widthAnchor.constraint(equalToConstant: 100), // Ancho deseado del botón
             nextButton.heightAnchor.constraint(equalToConstant: 50),
             
-            predictionLabel.topAnchor.constraint(equalTo: nextButton.bottomAnchor,constant: 20),
+            predictionLabel.topAnchor.constraint(equalTo: nextButton.bottomAnchor,constant: 30),
             predictionLabel.centerXAnchor.constraint(equalTo: nextButton.centerXAnchor),
             probabilityLabel.topAnchor.constraint(equalTo: predictionLabel.bottomAnchor,constant: 10),
             probabilityLabel.centerXAnchor.constraint(equalTo: predictionLabel.centerXAnchor),

@@ -11,25 +11,31 @@ import UIKit
 
 
 class ReusePrompt:UIView,ViewButtonProtocol {
-    var onTapped: ()->Void
+  
     
-    init(onTapped: @escaping ()->Void){
+    var onTapped: ()->Void
+    var text:String
+    
+    init(text: String, onTapped: @escaping ()->Void){
         self.onTapped = onTapped
+        self.text = text
         super.init(frame: .zero)
+        configureView()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     lazy var label: UILabel = {
-            let label = UILabel()
-            label.text = "Email o contraseña invalido"
-            label.textColor = .white
-            label.translatesAutoresizingMaskIntoConstraints = false
-            label.textAlignment = .center
-            
-            return label
-        }()
+        let label = UILabel()
+        label.text = self.text
+        label.textColor = .white
+        label.numberOfLines = 0
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .center
+        
+        return label
+    }()
         
         lazy var button: UIButton = {
             let button = UIButton()
