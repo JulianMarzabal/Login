@@ -24,10 +24,10 @@ class HomeViewController: UIViewController {
     }
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Welcome Back"
+        label.text = " Welcome Back"
         label.translatesAutoresizingMaskIntoConstraints = false
         
-        label.font = .systemFont(ofSize: 30)
+        label.font = .systemFont(ofSize: 24)
         
         
         

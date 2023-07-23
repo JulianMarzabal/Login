@@ -20,6 +20,7 @@
 		1E483B2F2A42628500FBB462 /* api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E483B2E2A42628500FBB462 /* api.swift */; };
 		1E483B322A42634600FBB462 /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E483B312A42634600FBB462 /* PhotoModel.swift */; };
 		1E483B342A4264D000FBB462 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E483B332A4264D000FBB462 /* APIError.swift */; };
+		1E5C48072A6D6E1D00C292AD /* RegisterViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5C48062A6D6E1D00C292AD /* RegisterViewControllerTests.swift */; };
 		1E6FDE1D2A2CEBA800D5B160 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6FDE1C2A2CEBA800D5B160 /* HomeViewModel.swift */; };
 		1E6FDE222A2CF3CA00D5B160 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6FDE212A2CF3CA00D5B160 /* FirstViewController.swift */; };
 		1E6FDE242A2D348200D5B160 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1E6FDE232A2D348200D5B160 /* GoogleService-Info.plist */; };
@@ -49,10 +50,26 @@
 		1E8197F02A451BD00035B31E /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 1E8197EF2A451BD00035B31E /* SDWebImage */; };
 		1E892A862A3F533C002B11AB /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 1E892A852A3F533C002B11AB /* FacebookCore */; };
 		1E892A882A3F533C002B11AB /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 1E892A872A3F533C002B11AB /* FacebookLogin */; };
+		1E8F3DCC2A673C20000483E1 /* RegisterViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8F3DCB2A673C20000483E1 /* RegisterViewModelTest.swift */; };
+		1E8F3DD42A673FA9000483E1 /* Montserrat-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1E8F3DD32A673FA9000483E1 /* Montserrat-Black.ttf */; };
+		1E8F3DD62A673FD6000483E1 /* Montserrat-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1E8F3DD52A673FD6000483E1 /* Montserrat-VariableFont_wght.ttf */; };
+		1E8F3DD82A6742E1000483E1 /* APIMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8F3DD72A6742E1000483E1 /* APIMock.swift */; };
+		1E8F3DDA2A67445E000483E1 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8F3DD92A67445E000483E1 /* FirebaseManager.swift */; };
+		1E8F3DDC2A6746B3000483E1 /* FirebaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8F3DDB2A6746B3000483E1 /* FirebaseMock.swift */; };
 		1EC093E22A2FE1B60006F636 /* FirstViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC093E12A2FE1B60006F636 /* FirstViewViewModel.swift */; };
 		1EC093E72A2FE61C0006F636 /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC093E62A2FE61C0006F636 /* ImageExtension.swift */; };
 		71D4147F6B5CD3F910F325D6 /* Pods_Reuse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D908AD2FC1D16F4AF9BB2E6 /* Pods_Reuse.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1E8F3DCD2A673C20000483E1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1E3C50B52A29345F00F7859B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1E3C50BC2A29345F00F7859B;
+			remoteInfo = Reuse;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0D908AD2FC1D16F4AF9BB2E6 /* Pods_Reuse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Reuse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +87,7 @@
 		1E483B2E2A42628500FBB462 /* api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = api.swift; sourceTree = "<group>"; };
 		1E483B312A42634600FBB462 /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
 		1E483B332A4264D000FBB462 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		1E5C48062A6D6E1D00C292AD /* RegisterViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewControllerTests.swift; sourceTree = "<group>"; };
 		1E6FDE1C2A2CEBA800D5B160 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		1E6FDE212A2CF3CA00D5B160 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		1E6FDE232A2D348200D5B160 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -84,6 +102,13 @@
 		1E7A7F8E2A410CD300618D24 /* Resnet50FP16.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Resnet50FP16.mlmodel; sourceTree = "<group>"; };
 		1E7A7F902A411C5600618D24 /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
 		1E892A892A3F5936002B11AB /* Reuse.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Reuse.entitlements; sourceTree = "<group>"; };
+		1E8F3DC92A673C1F000483E1 /* ReuseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReuseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E8F3DCB2A673C20000483E1 /* RegisterViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModelTest.swift; sourceTree = "<group>"; };
+		1E8F3DD32A673FA9000483E1 /* Montserrat-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Black.ttf"; path = "../../../../Downloads/Montserrat/static/Montserrat-Black.ttf"; sourceTree = "<group>"; };
+		1E8F3DD52A673FD6000483E1 /* Montserrat-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-VariableFont_wght.ttf"; path = "../../../../Downloads/Montserrat/Montserrat-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		1E8F3DD72A6742E1000483E1 /* APIMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIMock.swift; sourceTree = "<group>"; };
+		1E8F3DD92A67445E000483E1 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		1E8F3DDB2A6746B3000483E1 /* FirebaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseMock.swift; sourceTree = "<group>"; };
 		1EC093E12A2FE1B60006F636 /* FirstViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewViewModel.swift; sourceTree = "<group>"; };
 		1EC093E62A2FE61C0006F636 /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
 		8516A340E9B514E7095BF681 /* Pods-Reuse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reuse.release.xcconfig"; path = "Target Support Files/Pods-Reuse/Pods-Reuse.release.xcconfig"; sourceTree = "<group>"; };
@@ -117,6 +142,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1E8F3DC62A673C1F000483E1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -124,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				1E3C50BF2A29345F00F7859B /* Reuse */,
+				1E8F3DCA2A673C1F000483E1 /* ReuseTests */,
 				1E3C50BE2A29345F00F7859B /* Products */,
 				D3A6EC6F84E41D963A4777A5 /* Pods */,
 				F2B634D323D7B17AE274DC27 /* Frameworks */,
@@ -134,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				1E3C50BD2A29345F00F7859B /* Reuse.app */,
+				1E8F3DC92A673C1F000483E1 /* ReuseTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -141,6 +175,7 @@
 		1E3C50BF2A29345F00F7859B /* Reuse */ = {
 			isa = PBXGroup;
 			children = (
+				1E8F3DD22A673F5E000483E1 /* ResourcesFont */,
 				1E483B302A42633600FBB462 /* Model */,
 				1E483B2D2A42627900FBB462 /* API */,
 				1E892A892A3F5936002B11AB /* Reuse.entitlements */,
@@ -213,6 +248,7 @@
 				1E754BBA2A329AB500BF2F0C /* LabelWrapper.swift */,
 				1E754BBC2A32A23D00BF2F0C /* ButtonWrapper.swift */,
 				1E14A53C2A35EC0700FA5B72 /* ValidateFormStrategy.swift */,
+				1E8F3DD92A67445E000483E1 /* FirebaseManager.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -232,6 +268,26 @@
 			children = (
 			);
 			path = "New Group";
+			sourceTree = "<group>";
+		};
+		1E8F3DCA2A673C1F000483E1 /* ReuseTests */ = {
+			isa = PBXGroup;
+			children = (
+				1E8F3DCB2A673C20000483E1 /* RegisterViewModelTest.swift */,
+				1E8F3DD72A6742E1000483E1 /* APIMock.swift */,
+				1E8F3DDB2A6746B3000483E1 /* FirebaseMock.swift */,
+				1E5C48062A6D6E1D00C292AD /* RegisterViewControllerTests.swift */,
+			);
+			path = ReuseTests;
+			sourceTree = "<group>";
+		};
+		1E8F3DD22A673F5E000483E1 /* ResourcesFont */ = {
+			isa = PBXGroup;
+			children = (
+				1E8F3DD52A673FD6000483E1 /* Montserrat-VariableFont_wght.ttf */,
+				1E8F3DD32A673FA9000483E1 /* Montserrat-Black.ttf */,
+			);
+			path = ResourcesFont;
 			sourceTree = "<group>";
 		};
 		1EC093E52A2FE60C0006F636 /* Extensions */ = {
@@ -304,6 +360,24 @@
 			productReference = 1E3C50BD2A29345F00F7859B /* Reuse.app */;
 			productType = "com.apple.product-type.application";
 		};
+		1E8F3DC82A673C1F000483E1 /* ReuseTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1E8F3DD12A673C20000483E1 /* Build configuration list for PBXNativeTarget "ReuseTests" */;
+			buildPhases = (
+				1E8F3DC52A673C1F000483E1 /* Sources */,
+				1E8F3DC62A673C1F000483E1 /* Frameworks */,
+				1E8F3DC72A673C1F000483E1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1E8F3DCE2A673C20000483E1 /* PBXTargetDependency */,
+			);
+			name = ReuseTests;
+			productName = ReuseTests;
+			productReference = 1E8F3DC92A673C1F000483E1 /* ReuseTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -316,6 +390,10 @@
 				TargetAttributes = {
 					1E3C50BC2A29345F00F7859B = {
 						CreatedOnToolsVersion = 13.3.1;
+					};
+					1E8F3DC82A673C1F000483E1 = {
+						CreatedOnToolsVersion = 13.3.1;
+						TestTargetID = 1E3C50BC2A29345F00F7859B;
 					};
 				};
 			};
@@ -339,6 +417,7 @@
 			projectRoot = "";
 			targets = (
 				1E3C50BC2A29345F00F7859B /* Reuse */,
+				1E8F3DC82A673C1F000483E1 /* ReuseTests */,
 			);
 		};
 /* End PBXProject section */
@@ -349,8 +428,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E3C50CD2A29346100F7859B /* LaunchScreen.storyboard in Resources */,
+				1E8F3DD42A673FA9000483E1 /* Montserrat-Black.ttf in Resources */,
 				1E6FDE242A2D348200D5B160 /* GoogleService-Info.plist in Resources */,
 				1E3C50CA2A29346100F7859B /* Assets.xcassets in Resources */,
+				1E8F3DD62A673FD6000483E1 /* Montserrat-VariableFont_wght.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1E8F3DC72A673C1F000483E1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,6 +498,7 @@
 				1E7A7F912A411C5600618D24 /* Double+Extensions.swift in Sources */,
 				1E14A53D2A35EC0700FA5B72 /* ValidateFormStrategy.swift in Sources */,
 				1E3C50D52A29359400F7859B /* MainCoordinator.swift in Sources */,
+				1E8F3DDA2A67445E000483E1 /* FirebaseManager.swift in Sources */,
 				1E483B2F2A42628500FBB462 /* api.swift in Sources */,
 				1E483B322A42634600FBB462 /* PhotoModel.swift in Sources */,
 				1E754BBD2A32A23D00BF2F0C /* ButtonWrapper.swift in Sources */,
@@ -429,7 +518,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1E8F3DC52A673C1F000483E1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E8F3DDC2A6746B3000483E1 /* FirebaseMock.swift in Sources */,
+				1E5C48072A6D6E1D00C292AD /* RegisterViewControllerTests.swift in Sources */,
+				1E8F3DD82A6742E1000483E1 /* APIMock.swift in Sources */,
+				1E8F3DCC2A673C20000483E1 /* RegisterViewModelTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1E8F3DCE2A673C20000483E1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1E3C50BC2A29345F00F7859B /* Reuse */;
+			targetProxy = 1E8F3DCD2A673C20000483E1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		1E3C50CB2A29346100F7859B /* LaunchScreen.storyboard */ = {
@@ -615,6 +723,42 @@
 			};
 			name = Release;
 		};
+		1E8F3DCF2A673C20000483E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5QYF925T95;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Marzabal.ReuseTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Reuse.app/Reuse";
+			};
+			name = Debug;
+		};
+		1E8F3DD02A673C20000483E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5QYF925T95;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Marzabal.ReuseTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Reuse.app/Reuse";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -632,6 +776,15 @@
 			buildConfigurations = (
 				1E3C50D22A29346100F7859B /* Debug */,
 				1E3C50D32A29346100F7859B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1E8F3DD12A673C20000483E1 /* Build configuration list for PBXNativeTarget "ReuseTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1E8F3DCF2A673C20000483E1 /* Debug */,
+				1E8F3DD02A673C20000483E1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

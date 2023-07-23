@@ -155,8 +155,11 @@ class TextFieldWrapper:UITableViewCell {
             eyeIcon.leadingAnchor.constraint(equalTo: textField.trailingAnchor,constant: 1),
             eyeIcon.topAnchor.constraint(equalTo: textField.topAnchor),
             eyeIcon.bottomAnchor.constraint(equalTo: textField.bottomAnchor),
-           //eyeIcon.heightAnchor.constraint(equalToConstant: 50),
-            //eyeIcon.widthAnchor.constraint(equalToConstant: 50),
+        
+            eyeIcon.heightAnchor.constraint(lessThanOrEqualToConstant: 30),
+            eyeIcon.widthAnchor.constraint(lessThanOrEqualToConstant: 30)
+                    
+           
         ])
         
     }

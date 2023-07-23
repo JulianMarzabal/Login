@@ -24,10 +24,10 @@ class RegisterViewController: UIViewController {
     }
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Create Account"
+        label.text = " Create Account"
         label.translatesAutoresizingMaskIntoConstraints = false
-        
-        label.font = .systemFont(ofSize: 30)
+        label.font = .systemFont(ofSize: 24)
+    
         
         
         
@@ -81,7 +81,7 @@ class RegisterViewController: UIViewController {
         ])
     }
     
-    @objc private func loginButtonTapped() {
+    @objc  func loginButtonTapped() {
 
         viewmodel.delegate?.toLoginView()
         

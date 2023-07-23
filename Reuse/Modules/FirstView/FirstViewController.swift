@@ -65,14 +65,14 @@ class FirstViewController: UIViewController {
     lazy var predictionLabel: UILabel = {
         let label = UILabel()
        
-        label.text = "dogg"
+        
         label.font = .systemFont(ofSize: 16, weight: .semibold)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     lazy var probabilityLabel: UILabel = {
         let label = UILabel()
-        label.text = "100%"
+       
         label.font = .systemFont(ofSize: 16, weight: .semibold)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -85,13 +85,7 @@ class FirstViewController: UIViewController {
         viewmodel.fetchPhotos()
         setupUI()
         setContraints()
-        
-        
-     
-      
-        
-
-      
+       
         
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -112,10 +106,7 @@ class FirstViewController: UIViewController {
         view.addSubview(predictionLabel)
         view.addSubview(probabilityLabel)
    
-        
-        
-        
-        
+     
         let tap = UITapGestureRecognizer(target: self, action: #selector(didTapImage))
         tap.numberOfTapsRequired = 1
         imageView.addGestureRecognizer(tap)
@@ -166,12 +157,6 @@ class FirstViewController: UIViewController {
           
         }
     }
-    
-    
-    
-    
-
-    
 
 }
 

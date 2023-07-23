@@ -16,15 +16,16 @@ protocol RegisterViewDelegate:AnyObject {
 
 
 class RegisterViewModel {
-    private var email: String = "" {
+     var email: String = "" {
         didSet {
             print(email)
         }
     }
-    private var password: String = ""
-    private var passwordConfirm: String = ""
-    private var name: String = ""
-    private var surname: String = ""
+    public var firebaseManager:FirebaseProtocol = FirebaseManager.shared
+    var password: String = ""
+    var passwordConfirm: String = ""
+    var name: String = ""
+    var surname: String = ""
     var docRef: DocumentReference!
     
     
@@ -32,34 +33,10 @@ class RegisterViewModel {
     var items:[Item] = []
     weak var delegate: RegisterViewDelegate?
     var onFinishLoading: (()-> Void)?
+  
     
-//    func registerUser(email:String,password:String, completion: @escaping (Result<User,Error>) ->Void){
-//
-//        Auth.auth().createUser(withEmail: email, password: password) { authResult,error in
-//            if let error =  error {
-//                print("Cannot create user")
-//                completion(.failure(error))
-//            } else if let user = authResult?.user {
-//                print("user succesfully created")
-//                completion(.success(user))
-//            }
-//
-//        }
-//
-//    }
-    
-    private func registerUser(completion: @escaping (Result<User,Error>) ->Void) {
-        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-            if let error = error {
-                print("Cannot create user")
-                completion(.failure(error))
-            }else if let user = authResult?.user {
-                print("user succesfully created")
-                completion(.success(user))
-            }
-            
-            
-        }
+    private func registerUser(completion: @escaping (Result<UserModel,Error>) ->Void) {
+        firebaseManager.register(email: email, password: password,completion: completion)
         
     }
     
@@ -84,12 +61,12 @@ class RegisterViewModel {
             registerUser { [weak self] result in
                 switch result {
                 case .success(let user):
-                    self?.saveName(user: user)
+                   // self?.saveName(user: usermo)
                     print("Usuario creado con éxito: \(user)")
                     
                     self?.delegate?.toHomeView()
                 case .failure(let error):
-                    print("Error: \(error.localizedDescription)")
+                    self?.showError(text: error.localizedDescription)
                 }
             }
     }
@@ -110,29 +87,7 @@ class RegisterViewModel {
         
     }
     
-    
-//
-//
-//        // validar los campos
-//        if ValidateEmail().validateEmail(email: email) && ValidatePassword().validatePassword(password: password) {
-//            registerUser { [weak self] result in
-//                switch result {
-//                case .success(let user):
-//                    print("Usuario creado con éxito: \(user)")
-//                    self?.delegate?.toHomeView()
-//                case .failure(let error):
-//                    print("Error: \(error.localizedDescription)")
-//                }
-//            }
-//        } else {
-//            print("Al menos uno de los campos no es válido")
-//        }
-//
-//
-//    }
-    
-    
-    
+
     func onViewDidLoad(){
         items = []
         items.append(.label(text: "Name"))

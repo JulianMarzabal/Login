@@ -35,7 +35,7 @@ struct ImageProcessed {
 
 
 class FirstViewViewModel {
-    private var pageIndex:Int = 0
+    private var pageIndex:Int = 1
     private var firstLoad: Bool = true
     private var state: State = .done
     var api: APIProtocol = API.shared
@@ -86,6 +86,7 @@ class FirstViewViewModel {
             Task {
                 do {
                     let photoModel = try await api.getPhotos(page: pageIndex)
+                    pageIndex += 1
                     let photoResult = photoModel.results
                     createModel(photos: photoResult)
                     if firstLoad {
