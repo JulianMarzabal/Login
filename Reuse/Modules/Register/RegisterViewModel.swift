@@ -63,6 +63,7 @@ class RegisterViewModel {
                 case .success(let user):
                    // self?.saveName(user: usermo)
                     print("Usuario creado con éxito: \(user)")
+                   
                     
                     self?.delegate?.toHomeView()
                 case .failure(let error):
