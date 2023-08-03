@@ -9,7 +9,8 @@ import Foundation
 import FirebaseAuth
 
 struct UserModel {
-    var name: String?
+    var name: String
+    var uid: String
 }
 
 protocol FirebaseProtocol {
@@ -25,7 +26,7 @@ class FirebaseManager: FirebaseProtocol {
                 completion(.failure(error))
             }else if let user = authResult?.user {
                 print("user succesfully created")
-                completion(.success(UserModel(name: user.displayName)))
+                completion(.success(UserModel(name: user.displayName ?? "USER", uid: user.uid )))
             }
     }
     }

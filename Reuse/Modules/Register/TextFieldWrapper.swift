@@ -152,14 +152,10 @@ class TextFieldWrapper:UITableViewCell {
     func displayEyeIcon() {
         contentView.addSubview(eyeIcon)
         NSLayoutConstraint.activate([
-            eyeIcon.leadingAnchor.constraint(equalTo: textField.trailingAnchor,constant: 1),
+            eyeIcon.leadingAnchor.constraint(equalTo: textField.trailingAnchor,constant: 2),
             eyeIcon.topAnchor.constraint(equalTo: textField.topAnchor,constant: -5),
-            eyeIcon.bottomAnchor.constraint(equalTo: textField.bottomAnchor,constant: -5),
+            eyeIcon.bottomAnchor.constraint(equalTo: textField.bottomAnchor,constant: -8),
         
-            eyeIcon.heightAnchor.constraint(lessThanOrEqualToConstant: 30),
-            eyeIcon.widthAnchor.constraint(lessThanOrEqualToConstant: 30)
-                    
-           
         ])
         
     }

@@ -63,7 +63,7 @@ class ReuseTests: XCTestCase {
         sut.surname = "sese"
         sut.passwordConfirm = "frfr"
         
-        firebaseMock.response = .success(UserModel.init(name: "hola"))
+        firebaseMock.response = .success(UserModel.init(name: "hola", uid: "123"))
         sut.registerButtonTapped()
         
     
@@ -90,7 +90,11 @@ class ReuseTests: XCTestCase {
     }
     
     func testOnViewDidLoadRegisterButtonPressed() {
+        
+        
         sut.onViewDidLoad()
+        
+        XCTAssertEqual(sut.items.count, 12)
         
         
        

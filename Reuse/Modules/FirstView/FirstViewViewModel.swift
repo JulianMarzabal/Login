@@ -115,12 +115,7 @@ class FirstViewViewModel {
         }
     }
     
-//    func getNextImageUrl() -> URL? {
-////
-////        currentIndex = (currentIndex + 1) % myPhotoModel.count
-////        return URL(string: myPhotoModel[currentIndex].url)
-//
-//    }
+
 
     
     func processImage() {
@@ -128,11 +123,11 @@ class FirstViewViewModel {
         
         guard let url = URL(string: myPhotoModel[currentIndex].url) else {return}
         modeling(urlInput: url)
-        currentIndex = (currentIndex + 1)
         if currentIndex == myPhotoModel.count - 1 {
-            pageIndex += 1
+            
             fetchPhotos()
         }
+        currentIndex = (currentIndex + 1)
     }
     
     

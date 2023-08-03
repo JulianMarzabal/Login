@@ -58,6 +58,7 @@
 		1E8F3DDC2A6746B3000483E1 /* FirebaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8F3DDB2A6746B3000483E1 /* FirebaseMock.swift */; };
 		1EC093E22A2FE1B60006F636 /* FirstViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC093E12A2FE1B60006F636 /* FirstViewViewModel.swift */; };
 		1EC093E72A2FE61C0006F636 /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC093E62A2FE61C0006F636 /* ImageExtension.swift */; };
+		1EDDBE3A2A6DE0D5000B135E /* FirstViewViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDDBE392A6DE0D5000B135E /* FirstViewViewModelTest.swift */; };
 		71D4147F6B5CD3F910F325D6 /* Pods_Reuse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D908AD2FC1D16F4AF9BB2E6 /* Pods_Reuse.framework */; };
 /* End PBXBuildFile section */
 
@@ -111,6 +112,7 @@
 		1E8F3DDB2A6746B3000483E1 /* FirebaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseMock.swift; sourceTree = "<group>"; };
 		1EC093E12A2FE1B60006F636 /* FirstViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewViewModel.swift; sourceTree = "<group>"; };
 		1EC093E62A2FE61C0006F636 /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
+		1EDDBE392A6DE0D5000B135E /* FirstViewViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewViewModelTest.swift; sourceTree = "<group>"; };
 		8516A340E9B514E7095BF681 /* Pods-Reuse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reuse.release.xcconfig"; path = "Target Support Files/Pods-Reuse/Pods-Reuse.release.xcconfig"; sourceTree = "<group>"; };
 		8F30CD536043A22BEDF95BB3 /* Pods-Reuse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reuse.debug.xcconfig"; path = "Target Support Files/Pods-Reuse/Pods-Reuse.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -273,10 +275,10 @@
 		1E8F3DCA2A673C1F000483E1 /* ReuseTests */ = {
 			isa = PBXGroup;
 			children = (
-				1E8F3DCB2A673C20000483E1 /* RegisterViewModelTest.swift */,
+				1EDDBE382A6DE0AE000B135E /* RegisterTests */,
 				1E8F3DD72A6742E1000483E1 /* APIMock.swift */,
 				1E8F3DDB2A6746B3000483E1 /* FirebaseMock.swift */,
-				1E5C48062A6D6E1D00C292AD /* RegisterViewControllerTests.swift */,
+				1EDDBE392A6DE0D5000B135E /* FirstViewViewModelTest.swift */,
 			);
 			path = ReuseTests;
 			sourceTree = "<group>";
@@ -299,6 +301,15 @@
 				1E7A7F902A411C5600618D24 /* Double+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1EDDBE382A6DE0AE000B135E /* RegisterTests */ = {
+			isa = PBXGroup;
+			children = (
+				1E5C48062A6D6E1D00C292AD /* RegisterViewControllerTests.swift */,
+				1E8F3DCB2A673C20000483E1 /* RegisterViewModelTest.swift */,
+			);
+			path = RegisterTests;
 			sourceTree = "<group>";
 		};
 		D3A6EC6F84E41D963A4777A5 /* Pods */ = {
@@ -523,6 +534,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E8F3DDC2A6746B3000483E1 /* FirebaseMock.swift in Sources */,
+				1EDDBE3A2A6DE0D5000B135E /* FirstViewViewModelTest.swift in Sources */,
 				1E5C48072A6D6E1D00C292AD /* RegisterViewControllerTests.swift in Sources */,
 				1E8F3DD82A6742E1000483E1 /* APIMock.swift in Sources */,
 				1E8F3DCC2A673C20000483E1 /* RegisterViewModelTest.swift in Sources */,

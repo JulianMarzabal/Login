@@ -61,7 +61,7 @@ class RegisterViewModel {
             registerUser { [weak self] result in
                 switch result {
                 case .success(let user):
-                   // self?.saveName(user: usermo)
+                    self?.saveName(user: user)
                     print("Usuario creado con éxito: \(user)")
                    
                     
@@ -75,7 +75,7 @@ class RegisterViewModel {
     func showError(text:String) {
         delegate?.showError(text: text)
     }
-    func saveName(user:User){
+    func saveName(user:UserModel){
         let data: [String:Any] = ["Name": name, "surname": surname]
         docRef = Firestore.firestore().collection("userNames").document(user.uid)
         docRef.setData(data) { (error) in

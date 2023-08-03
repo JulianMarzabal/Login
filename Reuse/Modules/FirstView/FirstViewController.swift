@@ -38,7 +38,7 @@ class FirstViewController: UIViewController {
         button.addTarget(self, action: #selector(nextPrediction), for: .touchUpInside)
         button.backgroundColor = .systemBlue
         button.layer.cornerRadius = 8
-        button.tintColor = .systemBlue
+        button.tintColor = .systemGreen
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
